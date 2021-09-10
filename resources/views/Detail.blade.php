@@ -68,7 +68,22 @@
             <option value="" style="background: black">Approve</option>
             <option value="" style="background: black">Turn Down</option>
           </select>
+
         </a></p>
+
+
+
+            <label for="">Comment</label>
+            <textarea name="Comment" id="" class="form-control" cols="10" rows="3"></textarea>
+
+          </select>
+        </a></p>
+
+
+        <a href="" type="" class="btn btn-primary" > Submit </a>
+
+      </select>
+    </a></p>
 
             </div>
 

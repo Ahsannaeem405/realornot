@@ -19,8 +19,9 @@
         <div class="swiper-container" style=" margin-top: 13px;">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+
                     <div class="image image-overlay image-zoom"
-                        style="background-image:url({{asset('assets/background-1.jpg') }})"></div>
+                        style="background-image:url ({{asset('assets/background-1.jpg') }})"></div>
                     <div class="container">
                         <div class="row align-items-center vh-100">
                             <div class="col-lg-8 text-white" data-swiper-parallax-x="-100%">
@@ -34,7 +35,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="image image-overlay image-zoom"
-                        style="background-image:url({{ asset('assets/background-2.jpg') }})"></div>
+                        style="background-image:url ({{ asset('assets/background-2.jpg') }})"></div>
                     <div class="container">
                         <div class="row align-items-end align-items-center vh-100">
                             <div class="col-lg-8 text-white" data-swiper-parallax-x="-100%">
@@ -71,7 +72,9 @@
 
 
 
-    <div class="container" style="margin-top: 10px" data-aos="fade" data-aos-delay="500">
+    <div class="container" style="margin-top: 30px" data-aos="fade" data-aos-delay="500">
+        <h1 style="text-align: center;">Latest Photos</h1>
+        <br>
         <div class="row" style="margin-left: 27px;margin-right: 27px;">
 
             <div class="col-lg-4">
@@ -325,6 +328,8 @@
                 </div>
 
             </div>
+             {{-- <a style="text-align:center;" href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">See All</a> --}}
+
 
 
             {{-- <div class="col-lg-4">
