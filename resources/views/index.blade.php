@@ -21,7 +21,7 @@
                 <div class="swiper-slide">
 
                     <div class="image image-overlay image-zoom"
-                        style="background-image:url ('{{asset('assets/background-1.jpg') }}')"></div>
+                        style="background-image:url({{asset('assets/background-1.jpg') }})"></div>
                     <div class="container">
                         <div class="row align-items-center vh-100">
                             <div class="col-lg-8 text-white" data-swiper-parallax-x="-100%">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="image image-overlay image-zoom"
-                        style="background-image:url ('{{ asset('assets/background-2.jpg') }}')"></div>
+                        style="background-image:url({{ asset('assets/background-2.jpg') }})"></div>
                     <div class="container">
                         <div class="row align-items-end align-items-center vh-100">
                             <div class="col-lg-8 text-white" data-swiper-parallax-x="-100%">
@@ -328,7 +328,6 @@
                 </div>
 
             </div>
-
 
 
             {{-- <div class="col-lg-4">
