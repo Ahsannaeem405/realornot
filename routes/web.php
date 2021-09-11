@@ -40,9 +40,8 @@ Route::get('/buyer', function () {
     return view('buyer');
 });
 
-Route::get('/authenticate', function () {
-    return view('authenticate');
-});
+
+
 
 
 Route::get('/seller', function () {
@@ -65,23 +64,50 @@ Route::get('/Detail', function () {
     return view('Detail');
 });
 
+Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
+    Route::get('/authenticate', function () {
+        return view('authenticate');
 
+    });
 
-
-
-
-
-
-
-
+});
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::POST('/register_buyer', [App\Http\Controllers\ExpressController::class, 'register'])->name('register_buyer');
+
+
+Route::POST('/Store_express', [App\Http\Controllers\ExpressController::class, 'create'])->name('Store_express');
+
+
+
 Route::get('/express', function () {
     return view('express');
 });
 
+Route::get('/priority', function () {
+    return view('priority');
+});
+
+
+
+Route::get('/authentication_buyer', function () {
+    return view('authentication_buyer');
+});
+
+
+
+
+Route::get('/authGoogle', [App\Http\Controllers\ExpressController::class, 'redirectToGoogle']);
+
+
+Route::get('/auth/google/callback', [App\Http\Controllers\ExpressController::class, 'handleGoogleCallback']);
+
+
+
+Route::get('/auth/facebook', [App\Http\Controllers\ExpressController::class, 'redirectToFacebook'])->name('auth/facebook');
+Route::get('/auth/facebook/callback', [App\Http\Controllers\ExpressController::class, 'handleFacebookCallback']);

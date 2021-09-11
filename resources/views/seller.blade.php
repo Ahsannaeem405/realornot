@@ -39,9 +39,8 @@
               <div class="container" style="width: 69%;">
 
 
-                <form method="POST">
+                <form method="POST" action="{{ route('register_buyer') }}">
                     @csrf
-
 
 
               <div class="row form-group">
@@ -90,7 +89,17 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Store Name</label>
-                  <input id="Store" type="text" class="form-control" name="Store" value="{{ old('Store') }}">
+                  <input id="store_name" type="text" class="form-control" name="store_name" value="{{ old('store_name') }}">
+
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-white" for="email">Address</label>
+                  <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
 
                 </div>
               </div>
@@ -100,6 +109,7 @@
               <div class="row form-group">
 
                 <div class="col-md-12">
+                    <input type="hidden" name="role" value="seller" id="">
                   <label class="text-white" for="subject">Password</label>
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -110,13 +120,13 @@
                   @enderror
                 </div>
               </div>
-
+{{--
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-white" for="message">Confirm Password</label>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                 </div>
-              </div>
+              </div> --}}
 
               <div class="row form-group">
                 <div class="col-md-12">

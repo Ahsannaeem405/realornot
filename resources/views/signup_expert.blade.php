@@ -17,7 +17,11 @@
 
 
     @include('layouts.header')
-
+<style>
+    ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+</style>
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
@@ -39,7 +43,7 @@
               <div class="container" style="width: 69%;">
 
 
-                <form method="POST">
+                <form method="POST" action="{{url('/register_buyer')}}" enctype="multipart/form-data">
                     @csrf
 
 
@@ -47,7 +51,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Name</label>
-                  <input id="Name" type="text" class="form-control "  name="Name" value="{{ old('Name') }}" required>
+                  <input id="Name" type="text" class="form-control "  name="name" value="{{ old('Name') }}" required>
 
                 </div>
               </div>
@@ -56,7 +60,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Email</label>
-                  <input id="Email" type="Email" class="form-control" name="Email" >
+                  <input id="Email" type="Email" class="form-control" name="email" >
 
                 </div>
               </div>
@@ -77,7 +81,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Best Time For Interview</label>
-                  <input id="Best_Time" type="datetime-local" class="form-control" name="Best_Time" required >
+                  <input id="Interview_time" type="datetime-local" class="form-control" name="Interview_time" required >
 
                 </div>
               </div>
@@ -86,7 +90,17 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Brand Expert In</label>
-                  <input id="Brand_expert" type="text" class="form-control" name="Brand_expert" required >
+                  <input id="brand_expert" type="text" class="form-control" name="brand_expert" required >
+
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-white" for="subject">Password</label>
+                  <input type="hidden" name="role" value="expert" id="expert">
+                  <input id="password" type="text" class="form-control" name="password" required >
 
                 </div>
               </div>
@@ -94,9 +108,9 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                    <a href="Jobs_detail" class="btn btn-primary">
-                        {{ __('Submit') }}
-                    </a>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+
+
 
 
                 </div>

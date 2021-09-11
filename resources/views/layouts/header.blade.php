@@ -41,10 +41,20 @@
           <div class="d-none d-xl-inline-block">
             <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
 
+
+@if(Auth::user())
               <li style="text-align: center;">
                 <a href="#" class="pl-3 pr-3" data-toggle="modal" data-target="#Authentication">Authentication Now</a>
 
               </li>
+              @else
+
+              <li style="text-align: center;">
+                <a href="{{url('/login')}}" class="pl-3 pr-3" >Authentication Now</a>
+
+              </li>
+              @endif
+
               <li>
                 <a href=""  data-toggle="modal" data-target="#signUp"   class="pl-3 pr-3">Signup</a>
               </li>
@@ -74,7 +84,7 @@
             <a href="{{url('express')}}" type="button" class="btn btn-primary">Express</a>
             <p style="margin-bottom: -3px; margin-top: 3px;">30$</p>
             <p>50-100 mint</p>
-            <button type="button" class="btn btn-danger">Priority</button>
+            <a href="{{url('priority')}}" class="btn btn-danger">Priority</a>
             <p style="margin-bottom: -3px; margin-top: 3px;">20-40$</p>
             <p>2-48 hours</p>
 
@@ -102,7 +112,8 @@
             </button>
           </div>
           <div class="modal-body" style="text-align: center">
-            <a href="{{url('buyer')}}" type="button" class="btn btn-primary">Buyer</a><p></p>
+            <form action=""></form>
+            <a href="{{url('buyer')}}" type="button"   class="btn btn-primary">Buyer</a><p></p>
             <a href="{{url('seller')}}" type="button" class="btn btn-danger">Seller</a><p></p>
             <a href="" type="button" data-toggle="modal" data-target="#expert_signup"  class="btn btn-secondary">Expert</a>
           </div>
@@ -123,8 +134,7 @@
         <div class="modal-body" style="text-align: center;">
             <a href="{{url('signup_expert')}}" type="button" class="btn btn-primary">Apply</a>
             <p></p>
-
-            <button type="button" class="btn btn-danger">Login</button>
+            <a href="{{url('/login')}}" type="button"  class="btn btn-danger"s>Login</a>
 
         </div>
         <div class="modal-footer">
@@ -134,3 +144,7 @@
       </div>
     </div>
   </div>
+
+  <script>
+
+  </script>

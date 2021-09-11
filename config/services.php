@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '648102728592-3mfluftrbjc4mpoga0tv2kcutfbitri0.apps.googleusercontent.com',
+        'client_secret' => 'vb0oI1Se5umdnY8bTQRjg3PP',
+        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+    ],
+
+    'facebook' => [
+        'client_id' => '345608180639336',
+        'client_secret' => '35adcf18217a1b1601657be312ffc307',
+        'redirect' => 'http://realornot.herokuapp.com/public//auth/facebook/callback',
+    ],
+
 ];

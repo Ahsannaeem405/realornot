@@ -39,25 +39,36 @@
               <div class="container" style="width: 69%;">
 
 
-                <form method="POST">
+
+                <form method="POST" action="{{ route('register_buyer') }}">
                     @csrf
 
 
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                          <label class="text-white" for="fname"> Name</label>
+                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                          @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                        </div>
+
+                      </div>
+
               <div class="row form-group">
 
                 <div class="col-md-12">
-                  <label class="text-white" for="email">Name</label>
-                  <input id="Name" type="text" class="form-control "  name="Name" value="{{ old('Name') }}" required>
+                  <label class="text-white" for="email">Email</label>
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-white" for="subject">Email</label>
-                  <input id="Zip" type="Email" class="form-control" name="Email" >
-
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
               </div>
 
@@ -66,13 +77,42 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Phone</label>
-                  <input id="Photos" type="text" class="form-control" name="Phone" required >
+                  <input id="Phone" type="text" class="form-control" name="Phone" required >
 
                 </div>
               </div>
 
 
+              <div class="row form-group">
 
+                <div class="col-md-12">
+                  <label class="text-white" for="subject">Password</label>
+                  <input type="hidden" name="role" value="buyer" id="">
+                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+              </div>
+
+
+
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Register') }}
+                    </button>
+                </div>
+              </div>
+
+
+
+
+{{--
               <div class="row form-group">
                 <div class="col-md-12">
                     <a href=""  data-toggle="modal" data-target="#submitAuth"  type="submit" class="btn btn-primary">
@@ -81,23 +121,25 @@
 
 
                 </div>
-              </div>
+              </div> --}}
 
 
               <div class="row form-group">
-                <div class="col-6">
-                    <a href="{{url('/authenticate')}}" type="submit" class="btn btn-danger">
-                        <img style="height:     width: 24px; height: 23px;" src="{{asset('/assets/images/facebook.png')}}" alt="">
+                <div class="col-lg-6 col-md-6 col-sm-12" style="margin-bottom:10px">
+                    <a href="{{url('/auth/facebook')}}"  type="button" style="background: #4267b2; border:none;" class="btn btn-danger">
+                        <img style=" -webkit-filter: grayscale(0);
+                        -webkit-transform: scale(1.01);     border-radius: 4px; width: 24px; height: 23px;" src="{{asset('/assets/images/facebook.png')}}" alt="">
+<span style="font-size: 12px;"> Login With Facebbok</span>
 
-                   Login With Facebbok
                     </a>
                 </div>
-           <div class="col-6">
+           <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    <a href="{{url('/authenticate')}}" type="submit" class="btn btn-danger">
-                        <img style="height:     width: 24px; height: 23px;" src="{{asset('/assets/images/google.jpg')}}" alt="">
+                    <a href="{{url('/authGoogle')}}" type="button"  style="background:#4285f4;border:none" class="btn btn-danger">
+                        <img style="width: 24px;  height: 23px;  -webkit-filter: grayscale(0);
+                        -webkit-transform: scale(1.01);     border-radius: 4px;" src="{{asset('/assets/images/google.jpg')}}" alt="">
 
-                        Login With Google
+                        <span style="   font-size: 12px;">    Login With Google</span>
                          </a>
 
                 </div>
