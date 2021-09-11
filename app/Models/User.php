@@ -29,6 +29,8 @@ class User extends Authenticatable
         'Interview_time',
         'brand_expert',
         'google_id',
+        'facebook_id',
+
 
 
     ];

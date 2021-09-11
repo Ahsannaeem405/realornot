@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '648102728592-3mfluftrbjc4mpoga0tv2kcutfbitri0.apps.googleusercontent.com',
         'client_secret' => 'vb0oI1Se5umdnY8bTQRjg3PP',
-        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+        'redirect' => 'https://realornot.herokuapp.com/auth/google/callback',
     ],
 
     'facebook' => [
