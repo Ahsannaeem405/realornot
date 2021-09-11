@@ -39,7 +39,7 @@ return [
     'facebook' => [
         'client_id' => '345608180639336',
         'client_secret' => '35adcf18217a1b1601657be312ffc307',
-        'redirect' => 'http://realornot.herokuapp.com/public//auth/facebook/callback',
+        'redirect' => 'https://realornot.herokuapp.com/public/auth/facebook/callback',
     ],
 
 ];
