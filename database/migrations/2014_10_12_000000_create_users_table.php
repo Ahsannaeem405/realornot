@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('brand_expert')->nullable();
             $table->string('google_id')->nullable();
             $table->string('facebook_id')->nullable();
+            $table->string('expert_status')->nullable();
+
 
             $table->rememberToken();
             $table->timestamps();

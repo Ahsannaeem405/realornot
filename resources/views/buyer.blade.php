@@ -15,7 +15,6 @@
 
 
 
-
     @include('layouts.header')
 
 
@@ -33,6 +32,9 @@
           </div>
 
         </div>
+
+
+
 
         <div class="row">
           <div class="col-12 mb-5">
@@ -111,7 +113,6 @@
 
 
 
-
 {{--
               <div class="row form-group">
                 <div class="col-md-12">
@@ -129,13 +130,13 @@
                     <a href="{{url('/auth/facebook')}}"  type="button" style="background: #4267b2; border:none;" class="btn btn-danger">
                         <img style=" -webkit-filter: grayscale(0);
                         -webkit-transform: scale(1.01);     border-radius: 4px; width: 24px; height: 23px;" src="{{asset('/assets/images/facebook.png')}}" alt="">
-<span style="font-size: 12px;"> Login With Facebbok</span>
+            <span style="font-size: 12px;"> Login With Facebbok</span>
 
                     </a>
                 </div>
            <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    <a href="{{url('/authGoogle')}}" type="button"  style="background:#4285f4;border:none" class="btn btn-danger">
+                    <a href="{{url('/authGoogle')}}" id="google" type="button"  style="background:#4285f4;border:none" class="btn btn-danger">
                         <img style="width: 24px;  height: 23px;  -webkit-filter: grayscale(0);
                         -webkit-transform: scale(1.01);     border-radius: 4px;" src="{{asset('/assets/images/google.jpg')}}" alt="">
 
@@ -191,4 +192,17 @@
 
   </div>
 
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+
+    $("#google").click(function(){
+        @php
+        Session::put('role' , 'buyer');
+        @endphp
+
+});
+});
+</script>
   @endsection

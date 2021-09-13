@@ -14,25 +14,17 @@
             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
               <li class="active"><a href="{{url('/')}}">Home</a></li>
               <li class="has-children">
-                {{-- <a href="{{url('/single')}}">Gallery</a>
-                <ul class="dropdown">
-                  <li><a href="#">Nature</a></li>
-                  <li><a href="#">Portrait</a></li>
-                  <li><a href="#">People</a></li>
 
-                  <li class="has-children">
-                    <a href="#">Sub Menu</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Menu One</a></li>
-                      <li><a href="#">Menu Two</a></li>
-
-                    </ul>
-                  </li>
-                </ul>
-              </li> --}}
-              <li><a href="{{url('/service')}}">Services</a></li>
+              {{-- <li><a href="{{url('/service')}}">Services</a></li> --}}
               <li><a href="{{url('/about')}}">About</a></li>
               <li><a href="{{url('/contact')}}">Contact</a></li>
+
+              @if(Auth::check())
+              @if(Auth::user()->role == 'expert')
+              <li><a href="{{url('/Jobs_detail')}}">Jobs</a></li>
+              @endif
+              @endif
+
             </ul>
           </nav>
         </div>
@@ -42,29 +34,50 @@
             <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
 
 
-@if(Auth::user())
+            @if(Auth::check())
+
+             @if(Auth::user()->role != 'expert')
+
               <li style="text-align: center;">
                 <a href="#" class="pl-3 pr-3" data-toggle="modal" data-target="#Authentication">Authentication Now</a>
 
               </li>
-              @else
+              @endif
+            @endif
+              @if(!Auth::check())
 
               <li style="text-align: center;">
                 <a href="{{url('/login')}}" class="pl-3 pr-3" >Authentication Now</a>
 
               </li>
+
               @endif
 
+              @if(!Auth::check())
               <li>
                 <a href=""  data-toggle="modal" data-target="#signUp"   class="pl-3 pr-3">Signup</a>
               </li>
               <li>
                 <a href="{{url('/login')}}" class="pl-3 pr-3">Login</a>
               </li>
+              @else
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+             </a>
+
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                 @csrf
+             </form>
+              </li>
+
+              @endif
             </ul>
           </div>
 
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle "><span class="icon-menu h3"></span></a></div>
 
         </div>
 

@@ -20,6 +20,9 @@ class CreateExpressesTable extends Migration
             $table->string('photos')->nullable();
             $table->string('videos')->nullable();
             $table->string('userId')->nullable();
+            $table->string('express')->nullable();
+            $table->string('store')->nullable();
+
             $table->timestamps();
         });
     }

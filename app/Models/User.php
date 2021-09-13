@@ -30,6 +30,7 @@ class User extends Authenticatable
         'brand_expert',
         'google_id',
         'facebook_id',
+        'expert_status',
 
 
 

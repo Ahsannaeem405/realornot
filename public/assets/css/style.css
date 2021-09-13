@@ -5374,7 +5374,9 @@ body {
   content: "\eb5c"; }
 
 .icon-menu:before {
-  content: "\eb5d"; }
+    color: white;
+  /* content: "\eb5d"; */
+ }
 
 .icon-message-circle:before {
   content: "\eb5e"; }

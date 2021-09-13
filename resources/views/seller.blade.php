@@ -137,6 +137,28 @@
               </div>
 
 
+              <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-12" style="margin-bottom:10px">
+                    <a href="{{url('/auth/facebook')}}"  type="button" style="background: #4267b2; border:none;" class="btn btn-danger">
+                        <img style=" -webkit-filter: grayscale(0);
+                        -webkit-transform: scale(1.01);     border-radius: 4px; width: 24px; height: 23px;" src="{{asset('/assets/images/facebook.png')}}" alt="">
+            <span style="font-size: 12px;"> Login With Facebbok</span>
+
+                    </a>
+                </div>
+           <div class="col-lg-6 col-md-6 col-sm-12">
+
+                    <a href="{{url('/authGoogle')}}" id="google" type="button"  style="background:#4285f4;border:none" class="btn btn-danger">
+                        <img style="width: 24px;  height: 23px;  -webkit-filter: grayscale(0);
+                        -webkit-transform: scale(1.01);     border-radius: 4px;" src="{{asset('/assets/images/google.jpg')}}" alt="">
+
+                        <span style="   font-size: 12px;">    Login With Google</span>
+                         </a>
+
+                </div>
+              </div>
+
+
             </form>
         </div>
           </div>
@@ -154,5 +176,20 @@
 
 
   </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+  $(document).ready(function(){
+
+      $("#google").click(function(){
+          @php
+          Session::put('role' , 'seller');
+          @endphp
+
+  });
+  });
+  </script>
 
   @endsection

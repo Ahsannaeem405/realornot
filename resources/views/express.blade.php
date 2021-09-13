@@ -38,12 +38,31 @@
           <div class="col-12 mb-5">
               <div class="container" style="width: 69%;">
 
-
                 @if(session()->has('success'))
                 <div style="    background: black;color: red;" class="alert alert-success">
                     {{ session()->get('success') }}
                 </div>
             @endif
+            <?php
+
+            // $paymentId = null;
+            // if(isset('paymentId'))
+            // {
+            //     $paymentId =   $_GET['paymentId'];
+            // }
+
+
+            ?>
+            {{-- <input type="text" name="paymentId" value="<?php echo $paymentID; ?>" id="paymentID"> --}}
+
+            {{-- @if($paymentId)
+            <div style="    background: black;color: red;" class="alert alert-success">
+                {{'Payment is successful' }}
+            </div>
+                @endif --}}
+
+
+
 
 
                 <form method="POST"action="{{route('Store_express')}}" enctype="multipart/form-data" >
@@ -88,9 +107,14 @@
 
                 </div>
               </div>
+              <input type="hidden" name="role" value="express" id="">
 
 
-              <div class="row form-group">
+              <input type="radio" class="" checked id="Stripe" name="Paymentype" value="Stripe">  Pay with Stripe <br>
+
+              <input type="radio" id="paypal" name="Paymentype" value="paypal">    Pay with paypal
+
+              <div class="row form-group" style="    margin-top: 14px;">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Submit') }}
@@ -101,7 +125,10 @@
               </div>
 
 
+
             </form>
+
+
         </div>
           </div>
 
@@ -118,5 +145,14 @@
 
 
   </div>
+
+  <script>
+   $( document ).ready(function() {
+       alert('ii');
+    $("#Stripe").click(function(){
+        $( "#Stripe" ).html( $( "input:checked" ).val() + " is checked!" );
+    });
+});
+</script>
 
   @endsection

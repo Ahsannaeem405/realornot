@@ -63,7 +63,7 @@
             <div class="image-wrap-2" style=" border-radius: 22px;">
             <div class="image-info">
                 {{-- <h2 class="mb-3">Nature</h2> --}}
-                <a href="{{ url('/express') }}" class="btn btn-outline-white py-2 px-4">Seller/Store in paying</a>
+                <a href="{{ url('/StoreExpress') }}" class="btn btn-outline-white py-2 px-4">Seller/Store in paying</a>
             </div>
             </div>
 

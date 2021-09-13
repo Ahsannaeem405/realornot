@@ -14,5 +14,10 @@ class Express extends Model
         'zip_No',
         'photos',
         'videos',
+        'role',
+        'userID',
+        'store',
+
+
     ];
 }

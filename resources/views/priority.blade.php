@@ -67,6 +67,8 @@
 
                 </div>
               </div>
+              <input type="hidden" name="role" value="priority" id="">
+
 
 
               <div class="row form-group">
@@ -89,8 +91,12 @@
                 </div>
               </div>
 
+              <input type="radio" class="" checked id="Stripe" name="Paymentype" value="Stripe">  Pay with Stripe <br>
 
-              <div class="row form-group">
+              <input type="radio" id="paypal" name="Paymentype" value="paypal">    Pay with paypal
+
+
+              <div class="row form-group" style="    margin-top: 14px;">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Submit') }}
