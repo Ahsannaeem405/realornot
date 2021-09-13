@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,36 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/cls', function() {
+    $run = Artisan::call('config:clear');
+    $run = Artisan::call('cache:clear');
+    $run = Artisan::call('config:cache');
+    $run = Artisan::call('optimize');
+    $run = Artisan::call('optimize:clear');
+
+   Session::flush();
+    return 'FINISHED';
+});
+
+
+
+Route::get('/migrate', function() {
+    $run = Artisan::call('migrate:fresh');
+    return 'FINISHED';
+});
+
+Route::get('/seed', function() {
+
+    $run = Artisan::call('migrate');
+    $run = Artisan::call('db:seed');
+
+    return 'FINISHED';
+});
+
+
+
 
 Route::get('/', function () {
     return view('index');
