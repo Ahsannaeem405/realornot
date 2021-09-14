@@ -56,7 +56,7 @@ Route::get('/service', function () {
     return view('services');
 });
 
-Route::get('/about', function () {
+Route::get('/products', function () {
     return view('about');
 });
 
