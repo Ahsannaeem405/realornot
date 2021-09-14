@@ -5,21 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Express extends Model
+class Brand extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'name',
-        'zip_No',
-        'photos',
-        'videos',
-        'role',
-        'userID',
-        'store',
-        'buyer_product_status',
-
-
-
+        'brand_name',
     ];
 }

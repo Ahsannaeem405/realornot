@@ -14,7 +14,7 @@ use Laravel\Socialite\Facades\Socialite;
 class ExpressController extends Controller
 {
     public function create(Request $request){
-
+// dd($request);
         $id = Auth::user()->id;
         $express = new Express();
         $express->name =$request->Brand;
@@ -132,7 +132,7 @@ class ExpressController extends Controller
 
             else if($request->role == 'expert')
             {
-                return redirect('Jobs_detail');
+                return redirect('/login');
             }
 
             else{
@@ -333,6 +333,9 @@ class ExpressController extends Controller
    return back();
 
 }
+
+
+
 
 
     public function delete($id){

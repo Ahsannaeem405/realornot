@@ -20,6 +20,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    // $user = User::where('role'=='pending');
 
     /**
      * Where to redirect users after login.
@@ -27,6 +28,7 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
+
     protected $redirectTo ='/';
 
     /**

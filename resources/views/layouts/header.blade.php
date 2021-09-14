@@ -6,7 +6,7 @@
 
         <div class="col-6 col-xl-2" data-aos="fade-down">
       <a href="{{url('/')}}" class=" h2 mb-0"><img  style=" -webkit-filter: grayscale(0);
-        -webkit-transform: scale(1.01);   width: 70%;" src="{{asset('assets/images/logoo.jfif')}}" alt=""></a>
+        -webkit-transform: scale(1.01);   width: 70%;" src="{{asset('assets/logo1.png')}}" alt=""></a>
         </div>
         <div class="col-10 col-md-7 d-none d-xl-block" data-aos="fade-down">
           <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
@@ -39,7 +39,7 @@
              @if(Auth::user()->role != 'expert')
 
               <li style="text-align: center;">
-                <a href="#" class="pl-3 pr-3" data-toggle="modal" data-target="#Authentication">Authentication Now</a>
+                <a href="#" class="pl-3 pr-3"  data-toggle="modal" data-target="#Authentication">Authentication Now</a>
 
               </li>
               @endif
@@ -47,7 +47,7 @@
               @if(!Auth::check())
 
               <li style="text-align: center;">
-                <a href="{{url('/login')}}" class="pl-3 pr-3" >Authentication Now</a>
+                <a href="{{url('/login')}}" class="pl-3 pr-3 " >Authentication Now</a>
 
               </li>
 

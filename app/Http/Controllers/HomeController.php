@@ -28,5 +28,9 @@ class HomeController extends Controller
         return view('home');
     }
 
+    // public function expertLogin()
+    // {
+    //     return redirect('/Jobs_detail');
+    // }
 
 }

@@ -18,6 +18,11 @@
 
     @include('layouts.header')
 
+    <?php
+use App\Models\Brand;
+$brand = Brand::all();
+
+?>
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
@@ -73,7 +78,17 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Brand name</label>
-                  <input id="Brand" type="text" class="form-control "  name="Brand" value="{{ old('Brand') }}" required>
+
+                  <select name="Brand" id="" class="form-control">
+                    @foreach ($brand as $brands )
+
+
+                    <option id="brand_expert"  style="background:black" value="{{ $brands->id}}" required>{{ $brands->brand_name}}</option>
+                    @endforeach
+                </select>
+
+
+                  {{-- <input id="Brand" type="text" class="form-control "  name="Brand" value="{{ old('Brand') }}" required> --}}
 
                 </div>
               </div>

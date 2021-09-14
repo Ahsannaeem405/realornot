@@ -22,6 +22,11 @@
     filter: invert(1);
 }
 </style>
+<?php
+use App\Models\Brand;
+$brand = Brand::all();
+
+?>
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
@@ -91,7 +96,14 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Brand Expert In</label>
-                  <input id="brand_expert" type="text" class="form-control" name="brand_expert" required >
+                  <select name="brand_expert" id="" class="form-control">
+                      @foreach ($brand as $brands )
+
+
+                      <option id="brand_expert"  style="background:black" value="{{ $brands->id}}" required>{{ $brands->brand_name}}</option>
+                      @endforeach
+                  </select>
+                  {{-- <input id="brand_expert" type="text" class="form-control" name="brand_expert" required > --}}
 
                 </div>
               </div>

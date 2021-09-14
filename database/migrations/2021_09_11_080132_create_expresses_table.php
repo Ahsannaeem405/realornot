@@ -22,6 +22,8 @@ class CreateExpressesTable extends Migration
             $table->string('userId')->nullable();
             $table->string('express')->nullable();
             $table->string('store')->nullable();
+            $table->string('buyer_product_status')->nullable();
+
 
             $table->timestamps();
         });

@@ -71,16 +71,11 @@
 
 
 
-            <li class={{ Request::is('admin/writing')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Writing</span></a>
+            <li class={{ Request::is('admin/writing')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Brands</span></a>
                 <ul class="menu-content">
 
-                    <li class={{ Request::is('admin/writing/topics')? 'active' : '' }} ><a href="{{url('admin/writing/topics')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Topics</span></a>
+                    <li class={{ Request::is('view/brands')? 'active' : '' }} ><a href="{{url('view/brands')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Brands</span></a>
                     </li>
-
-                    <li class={{ Request::is('admin/writing/grammer')? 'active' : '' }} ><a href="{{url('admin/writing/grammer')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Grammer</span></a>
-                    </li>
-
-
 
                 </ul>
 

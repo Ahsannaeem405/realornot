@@ -45,9 +45,7 @@ Route::get('/seed', function() {
 
 
 
-Route::get('/', function () {
-    return view('index');
-});
+
 
 Route::get('/single', function () {
     return view('single');
@@ -87,9 +85,7 @@ Route::get('/signup_expert', function () {
     return view('signup_expert');
 });
 
-Route::get('/Jobs_detail', function () {
-    return view('Jobs_detail');
-});
+
 
 Route::get('/Detail', function () {
     return view('Detail');
@@ -107,7 +103,6 @@ Route::get('/Detail', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::POST('/register_buyer', [App\Http\Controllers\ExpressController::class, 'register'])->name('register_buyer');
 
@@ -124,6 +119,31 @@ Route::get('edit_seller/{id}', [App\Http\Controllers\ExpressController::class, '
 Route::get('edit_buyer/{id}', [App\Http\Controllers\ExpressController::class, 'edit_buyer']);
 
 Route::get('edit_expert/{id}', [App\Http\Controllers\ExpressController::class, 'edit_expert']);
+
+
+
+
+Route::get('/', function () {
+    return view('index');
+});
+
+
+Route::get('/logins', function () {
+    return view('Auth.login');
+});
+
+
+
+
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
 
 
 
@@ -182,6 +202,8 @@ Route::get('/authentication_buyer', function () {
 
 
 
+
+
 Route::get('/authGoogle', [App\Http\Controllers\ExpressController::class, 'redirectToGoogle']);
 
 
@@ -213,5 +235,30 @@ Route::get('/paymenterror', [App\Http\Controllers\PaymentController::class, 'pay
 Route::any('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripe']);
 Route::post('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
+
+Route::any('brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
+Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
+
+Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');
+
+
+
+
+
+Route::middleware(['auth','Expert'])->group(function (){
+
+        Route::get('/Jobs_detail', function () {
+            return view('Jobs_detail');
+        });
+
+
+    });
+    Route::get('/error', function () {
+        return view('error');
+    });
+
+    Route::get('/view/brands', function () {
+        return view('admin.brands');
+    });
 
 
