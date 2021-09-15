@@ -398,7 +398,7 @@
 
 
                         <div>
-                            <img src="{{ asset('/assets/how.jpg') }}" style="-webkit-filter: grayscale(0);
+                            <img src="{{asset('/assets/How.jpg') }}" style="-webkit-filter: grayscale(0);
                             -webkit-transform: scale(1.01);
                             max-height: 313px;
                          width: fit-content;" alt="Image" class="img-fluid">
