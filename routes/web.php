@@ -47,7 +47,7 @@ Route::get('/seed', function() {
 
 
 
-Route::get('/single', function () {
+Route::get('/product_detail', function () {
     return view('single');
 });
 
@@ -87,9 +87,7 @@ Route::get('/signup_expert', function () {
 
 
 
-Route::get('/Detail', function () {
-    return view('Detail');
-});
+
 
 // Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
@@ -121,6 +119,16 @@ Route::get('edit_buyer/{id}', [App\Http\Controllers\ExpressController::class, 'e
 Route::get('edit_expert/{id}', [App\Http\Controllers\ExpressController::class, 'edit_expert']);
 
 
+Route::get('/Detail/{id}', [App\Http\Controllers\ExpressController::class, 'Detail']);
+
+
+
+Route::get('/product_status/{id}', [App\Http\Controllers\ExpressController::class, 'product_status'])->name('product_status');
+
+
+// Route::get('/Detail/{id}', function () {
+//     return view('Detail');
+// });
 
 
 Route::get('/', function () {
@@ -153,6 +161,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/express', function () {
     return view('express');
 });
+
+Route::get('/Jobs_history', function () {
+    return view('Jobs_history');
+});
+
+
 
 Route::get('/EditSeller', function () {
     return view('admin.EditSeller');
@@ -244,6 +258,14 @@ Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'd
 
 
 
+Route::any('admin_Approve/{id}', [App\Http\Controllers\ExpressController::class, 'admin_Approve']);
+
+
+Route::any('admin_Turn_down/{id}', [App\Http\Controllers\ExpressController::class, 'admin_Turn_down']);
+
+
+
+
 
 Route::middleware(['auth','Expert'])->group(function (){
 
@@ -260,5 +282,11 @@ Route::middleware(['auth','Expert'])->group(function (){
     Route::get('/view/brands', function () {
         return view('admin.brands');
     });
+
+    Route::get('/view/jobs', function () {
+        return view('admin.jobs');
+    });
+
+
 
 

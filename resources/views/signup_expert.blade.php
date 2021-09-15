@@ -57,7 +57,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Name</label>
-                  <input id="Name" type="text" class="form-control "  name="name" value="{{ old('Name') }}" required>
+                  <input id="Name" type="text " placeholder="Name" class="form-control "  name="name" value="{{ old('Name') }}" required>
 
                 </div>
               </div>
@@ -66,7 +66,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Email</label>
-                  <input id="Email" type="Email" class="form-control" name="email" >
+                  <input id="Email" type="Email" placeholder="Email"  class="form-control" name="email" >
 
                 </div>
               </div>
@@ -76,7 +76,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Resume Upload</label>
-                  <input id="Resume" type="file" class="form-control" name="Resume" required >
+                  <input id="Resume" type="file" placeholder="Resume Upload" class="form-control" name="Resume" required >
 
                 </div>
               </div>
@@ -87,7 +87,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Best Time For Interview</label>
-                  <input id="Interview_time" type="datetime-local" class="form-control" name="Interview_time" required >
+                  <input id="Interview_time" type="datetime-local" placeholder="Interview Time" class="form-control" name="Interview_time" required >
 
                 </div>
               </div>
@@ -112,8 +112,8 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Password</label>
-                  <input type="hidden" name="role" value="expert" id="expert">
-                  <input id="password" type="text" class="form-control" name="password" required >
+                  <input type="hidden" name="role"  value="expert" id="expert">
+                  <input id="password" type="text" placeholder="Password" class="form-control" name="password" required >
 
                 </div>
               </div>

@@ -82,6 +82,18 @@
             </li>
 
 
+            <li class={{ Request::is('admin/writing')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Jobs</span></a>
+                <ul class="menu-content">
+
+                    <li class={{ Request::is('view/jobs')? 'active' : '' }} ><a href="{{url('view/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+
         </ul>
     </div>
 </div>

@@ -22,46 +22,77 @@
           <div class="col-md-7">
             <div class="row mb-5">
               <div class="col-12 ">
-                <h2 class="site-section-heading text-center">Portrait Gallery</h2>
+                <h2 class="site-section-heading text-center">My Products</h2>
               </div>
             </div>
           </div>
 
         </div>
+        <?php
+     use App\Models\Express;
 
+
+        $express = Express::where('userId', Auth::user()->id)->get();
+
+?>
+{{-- @dd($express) --}}
 
         <div class="row" id="lightgallery">
-          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/demo/product-17-2.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
-            <button class="mt-3 ml-3 btn btn-danger" style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                NO Pass
-            </button>
-            <a href="#"><img src="{{asset('/assets/images/demo/product-17-2.jpg')}}"style=" border-radius: 22px;    max-height: 100%;" alt="IMage" class="img-fluid"></a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/demo/product-18.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam omnis quaerat molestiae, praesentium. Ipsam, reiciendis. Aut molestiae animi earum laudantium.</p>">
-            <button class="mt-3 ml-3 btn btn-danger" style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                NO Pass
-            </button>
-            <a href="#"><img src="{{asset('/assets/images/demo/product-18.jpg')}}" style=" border-radius: 22px;    max-height: 100%;" alt="IMage" class="img-fluid"></a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/demo/product-11-2.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem reiciendis, dolorum illo temporibus culpa eaque dolore rerum quod voluptate doloribus.</p>">
-            <button class="mt-3 ml-3 btn btn-danger" style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                NO Pass
-            </button>
-            <a href="#"><img src="{{asset('/assets/images/demo/product-11-2.jpg')}}" style=" border-radius: 22px;    max-height: 100%;" alt="IMage" class="img-fluid"></a>
-          </div>
-          {{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/nature_big_4.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim perferendis quae iusto omnis praesentium labore tempore eligendi quo corporis sapiente.</p>">
-            <a href="#"><img src="{{asset('/assets/images/nature_small_4.jpg')}}" style=" border-radius: 22px;" alt="IMage" class="img-fluid"></a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/nature_big_5.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, voluptatum voluptate tempore aliquam, dolorem distinctio. In quas maiores tenetur sequi.</p>">
-            <a href="#"><img src="{{asset('/assets/images/nature_small_5.jpg')}}" alt="IMage" class="img-fluid"></a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="{{asset('/assets/images/big-images/nature_big_6.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum cum culpa blanditiis illum, voluptatum iusto quisquam mollitia debitis quaerat maiores?</p>">
-            <a href="#"><img src="{{asset('/assets/images/nature_small_6.jpg')}}" alt="IMage" class="img-fluid"></a>
-          </div> --}}
+            @foreach ( $express as  $expresss )
+
+                <div class="col-lg-4">
+
+                    <div class="image-wrap-2" style=" border-radius: 22px;">
+                        <div class="image-info">
+                            {{-- <h2 class="mb-3">Nature</h2> --}}
+                            <a href="{{ url('/products') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+                        </div>
+                        @if($expresss->status_expert == '2')
+                        <button class="mt-3 ml-3 btn btn-danger"
+                            style="position: absolute;  background:#37b649; border-color:#37b649;  border-radius: 8px;z-index: 100; ">
+                            Pass
+                        </button>
+                        @else
+                        <button class="mt-3 ml-3 btn btn-danger"
+                        style="position: absolute;    border-radius: 8px;z-index: 100; ">
+                        No pass
+                    </button>
+
+                        @endif
+                        <div>
+
+
+                            <img src="{{ asset('/uploads/'.$expresss->photos) }}" style="
+                            max-height: 313px;
+                            min-height: 313px;
+                         width: fit-content;" alt="Image" class="img-fluid">
+                            <div style="background:white; padding:15px;max-height: 156px;">
+                                <div class="row">
+                                    <div class="col-8">
+
+
+                                     {{$expresss->zip_No}}
+                                        <br>
+
+                                        <h2 style="color: black;">  {{$expresss->Brand->brand_name}}</h2>
+                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
+                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
+                                            alt="">
+                                    </div>
 
 
 
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+
+                </div>
+                @endforeach
 
         </div>
       </div>

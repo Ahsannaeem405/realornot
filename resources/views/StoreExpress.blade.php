@@ -51,21 +51,8 @@
             @endif
             <?php
 
-            // $paymentId = null;
-            // if(isset('paymentId'))
-            // {
-            //     $paymentId =   $_GET['paymentId'];
-            // }
-
-
             ?>
-            {{-- <input type="text" name="paymentId" value="<?php echo $paymentID; ?>" id="paymentID"> --}}
 
-            {{-- @if($paymentId)
-            <div style="    background: black;color: red;" class="alert alert-success">
-                {{'Payment is successful' }}
-            </div>
-                @endif --}}
 
 
 
@@ -99,6 +86,7 @@
 
                 </div>
               </div>
+              {{-- <input type="hidden" name="buyer_job"  value="buyer_job" id=""> --}}
 
 
               <div class="row form-group">

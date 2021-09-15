@@ -16,12 +16,21 @@
               <li class="has-children">
 
               {{-- <li><a href="{{url('/service')}}">Services</a></li> --}}
-              <li><a href="{{url('/products')}}">products</a></li>
-              <li><a href="{{url('/contact')}}">Contact</a></li>
+              <li id="navMenus"><a href="{{url('/products')}}">products</a></li>
+              <li id="navMenus"><a href="{{url('/contact')}}">Contact</a></li>
 
               @if(Auth::check())
+              @if(Auth::user()->role != 'expert')
+              <li><a href="{{url('/product_detail')}}">My Products</a></li>
+              @endif
               @if(Auth::user()->role == 'expert')
               <li><a href="{{url('/Jobs_detail')}}">Jobs</a></li>
+              <li><a href="{{url('/Jobs_history')}}">Job History</a></li>
+
+
+              @endif
+              @if(Auth::user()->role == 'buyer')
+              <li><a href="{{url('/authentication_buyer')}}">Authentication Buyer</a></li>
               @endif
               @endif
 
@@ -157,7 +166,21 @@
       </div>
     </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
+// $(document).ready(function(){
 
+//     $("li").click(function(){
+//         alert(1);
+//   // If this isn't already active
+//   if (!$(this).hasClass("active")) {
+//     // Remove the class from anything that is active
+//     $("li.active").removeClass("active");
+//     // And make this active
+//     $(this).addClass("active");
+//   }
+// });
+// });
   </script>
+
+

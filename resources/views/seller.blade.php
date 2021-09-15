@@ -46,7 +46,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-white" for="fname">Name</label>
-                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  <input id="name" type="text " placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                   @error('name')
                       <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Email</label>
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                  <input id="email" type="email" placeholder="Email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                   @error('email')
                       <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Phone Number</label>
-                  <input id="Phone" type="text" class="form-control" name="Phone" value="{{ old('Phone') }}">
+                  <input id="Phone" type="text" placeholder="Phone Number" class="form-control" name="Phone" value="{{ old('Phone') }}">
 
 
                 </div>
@@ -89,7 +89,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Store Name</label>
-                  <input id="store_name" type="text" class="form-control" name="store_name" value="{{ old('store_name') }}">
+                  <input id="store_name" type="text" placeholder="Store Name" class="form-control" name="store_name" value="{{ old('store_name') }}">
 
                 </div>
               </div>
@@ -99,7 +99,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Address</label>
-                  <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
+                  <input id="address" type="text" placeholder="Address" class="form-control" name="address" value="{{ old('address') }}">
 
                 </div>
               </div>
@@ -111,7 +111,7 @@
                 <div class="col-md-12">
                     <input type="hidden" name="role" value="seller" id="">
                   <label class="text-white" for="subject">Password</label>
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                  <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                   @error('password')
                       <span class="invalid-feedback" role="alert">

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use PhpParser\Node\Expr;
 
 class ExpressController extends Controller
 {
@@ -94,9 +95,9 @@ class ExpressController extends Controller
 
 
 
+
     public function register(Request $request)
     {
-        // dd($request);
 
             $user  = new User();
             $user->name =  $request->name;
@@ -127,10 +128,11 @@ class ExpressController extends Controller
             $user->save();
             if($request->role == 'buyer')
             {
-                return redirect('authentication_buyer');
+                return redirect('/login');
+                // return redirect('authentication_buyer');
             }
 
-            else if($request->role == 'expert')
+             if($request->role == 'expert')
             {
                 return redirect('/login');
             }
@@ -333,6 +335,102 @@ class ExpressController extends Controller
    return back();
 
 }
+public function Detail($id){
+
+    $product =Express::where('id',$id )->first();
+    // dd($product);
+    return view('Detail', compact('product'));
+
+
+}
+
+public function product_status(Request $request, $id){
+    // dd($request);
+
+    $product =Express::find($id );
+    $product->comment =   $request->Comment;
+    $product->status_expert =   $request->statuss;
+    $product->update();
+    // dd($product);
+    return back()->with('success', 'Status updated successfully');
+
+
+}
+
+public function admin_Approve( $id){
+
+
+    $product =Express::find($id );
+
+    if($product->status_expert == '0')
+    {
+        // dd( 'ppp');
+        $product->status_expert = null;
+        $product->comment = null;
+    }
+    else{
+        $product->status_expert = 2;
+
+    }
+    // dd( $product->status_expert);
+
+
+    $product->update();
+
+    return back()->with('success', 'Status updated successfully');
+
+}
+
+public function admin_Turn_down( $id){
+
+    $product =Express::find($id );
+
+    // @dd( $product->status_expert);
+    if( $product->status_expert == '0')
+    {
+
+        $product->status_expert = 2;
+        $product->admin_expert = 'No Pass';
+    }
+
+
+
+    elseif( $product->status_expert == '1')
+    {
+        $product->status_expert = null;
+        $product->comment = null;
+    }
+
+
+
+    elseif($product->status_expert == '2')
+    {
+        $product->status_expert = null;
+        $product->comment = null;
+    }
+    else{
+
+        $product->status_expert = null;
+    }
+    // dd($product->status_expert);
+
+    $product->update();
+
+    return back()->with('success', 'Status updated successfully');
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

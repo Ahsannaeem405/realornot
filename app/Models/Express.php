@@ -18,8 +18,17 @@ class Express extends Model
         'userID',
         'store',
         'buyer_product_status',
+        'status_expert',
+         'comment',
+         'admin_expert',
+
+
 
 
 
     ];
+
+    public function Brand(){
+        return $this->belongsTo('App\Models\Brand', 'name');
+    }
 }

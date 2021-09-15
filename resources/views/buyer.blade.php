@@ -49,7 +49,7 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                           <label class="text-white" for="fname"> Name</label>
-                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                          <input id="name" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                           @error('name')
                               <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="email">Email</label>
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                  <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                   @error('email')
                       <span class="invalid-feedback" role="alert">
@@ -79,7 +79,7 @@
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Phone</label>
-                  <input id="Phone" type="text" class="form-control" name="Phone" required >
+                  <input id="Phone" type="text" placeholder="Phone Number" class="form-control" name="Phone" required >
 
                 </div>
               </div>
@@ -90,7 +90,7 @@
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Password</label>
                   <input type="hidden" name="role" value="buyer" id="">
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                  <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                   @error('password')
                       <span class="invalid-feedback" role="alert">

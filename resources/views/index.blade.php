@@ -63,6 +63,13 @@
 
         </style>
 
+        <?php
+     use App\Models\Express;
+        $express = Express::get()->take(12);
+
+        ?>
+
+
 
         <div class="swiper-container" style=" margin-top: 13px;">
             <div class="swiper-wrapper">
@@ -113,7 +120,7 @@
                                                     <label class="text-black" for="email">Email</label>
                                                     <input id="email" type="email"
                                                         class="form-control @error('email') is-invalid @enderror"
-                                                        name="email" value="{{ old('email') }}" required
+                                                        name="email" placeholder="Email" value="{{ old('email') }}" style="color: black !important;" required
                                                         autocomplete="email" autofocus>
 
                                                     @error('email')
@@ -130,7 +137,7 @@
                                                     <label class="text-black" for="subject">Password</label>
                                                     <input id="password" type="password"
                                                         class="form-control @error('password') is-invalid @enderror"
-                                                        name="password" required autocomplete="current-password">
+                                                        name="password" placeholder="Password" style="color: black !important;" required autocomplete="current-password">
 
                                                     @error('password')
                                                         <span class="invalid-feedback" role="alert">
@@ -250,9 +257,9 @@
 
                                                 <div class="col-md-12">
                                                     <label class="text-black" for="email">Email</label>
-                                                    <input id="email" type="email"
+                                                    <input id="email" placeholder="Email"  type="email"
                                                         class="form-control @error('email') is-invalid @enderror"
-                                                        name="email" value="{{ old('email') }}" required
+                                                        name="email" value="{{ old('email') }}" style="color: black !important;" required
                                                         autocomplete="email" autofocus>
 
                                                     @error('email')
@@ -266,8 +273,8 @@
                                             <div class="row form-group">
 
                                                 <div class="col-md-12">
-                                                    <label class="text-black" for="subject">Password</label>
-                                                    <input id="password" type="password"
+                                                    <label class="text-black" style="color: black !important;" for="subject">Password</label>
+                                                    <input id="password" placeholder="Password" type="password"
                                                         class="form-control @error('password') is-invalid @enderror"
                                                         name="password" required autocomplete="current-password">
 
@@ -484,33 +491,39 @@
             <h1 style="text-align: center;">Latest Authentication</h1>
             <br>
             <div class="row" style="margin-left: 27px;margin-right: 27px;">
-
+                @foreach ( $express as  $expresss )
+                @if($expresss->status_expert == '2')
                 <div class="col-lg-4">
 
                     <div class="image-wrap-2" style=" border-radius: 22px;">
                         <div class="image-info">
                             {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+                            <a href="{{ url('/products') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
                         </div>
+
                         <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
+                            style="position: absolute;  background:#37b649; border-color:#37b649; border-radius: 8px;z-index: 100; ">
                             Pass
                         </button>
+
+
+
                         <div>
 
 
-                            <img src="{{ asset('/assets/images/img_6.jpg') }}" style="
+                            <img src="{{ asset('/uploads/'.$expresss->photos) }}" style="
                             max-height: 313px;
+                            min-height: 313px;
                          width: fit-content;" alt="Image" class="img-fluid">
                             <div style="background:white; padding:15px;max-height: 156px;">
                                 <div class="row">
                                     <div class="col-8">
 
 
-                                        #751163
+                                     {{$expresss->zip_No}}
                                         <br>
 
-                                        <h2 style="color: black;">Air jardan</h2>
+                                        <h2 style="color: black;">  {{$expresss->Brand->brand_name}}</h2>
                                         <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
                                         <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
                                     </div>
@@ -528,261 +541,20 @@
                     </div>
 
                 </div>
+                @endif
+                @endforeach
 
 
-                <div class="col-lg-4">
 
-                    <div class="image-wrap-2" style=" border-radius: 22px;">
-                        <div class="image-info">
-                            {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-                        </div>
-                        <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            NO Pass
-                        </button>
-                        <div>
 
 
-                            <img src="{{ asset('/assets/images/demo/category-3.jpg') }}" style="
-                            max-height: 313px;
-                         width: fit-content;" alt="Image" class="img-fluid">
-                            <div style="background:white; padding:15px;max-height: 156px;">
-                                <div class="row">
-                                    <div class="col-8">
-
-
-                                        #751163
-                                        <br>
-
-                                        <h2 style="color: black;">Air jardan</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
-                                            alt="">
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                    <div class="image-wrap-2" style=" border-radius: 22px;">
-                        <div class="image-info">
-                            {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-                        </div>
-                        <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            NO Pass
-                        </button>
-                        <div>
-
-
-                            <img src="{{ asset('/assets/images/demo/category-3.jpg') }}" style="
-                            max-height: 313px;
-                         width: fit-content;" alt="Image" class="img-fluid">
-                            <div style="background:white; padding:15px;max-height: 156px;">
-                                <div class="row">
-                                    <div class="col-8">
-
-
-                                        #751163
-                                        <br>
-
-                                        <h2 style="color: black;">Air jardan</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
-                                            alt="">
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-lg-4">
-
-                    <div class="image-wrap-2" style=" border-radius: 22px;">
-                        <div class="image-info">
-                            {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-                        </div>
-                        <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            NO Pass
-                        </button>
-                        <div>
-
-
-                            <img src="{{ asset('/assets/images/demo/category-3.jpg') }}" style="
-                            max-height: 313px;
-                         width: fit-content;" alt="Image" class="img-fluid">
-                            <div style="background:white; padding:15px;max-height: 156px;">
-                                <div class="row">
-                                    <div class="col-8">
-
-
-                                        #751163
-                                        <br>
-
-                                        <h2 style="color: black;">Air jardan</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
-                                            alt="">
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                    <div class="image-wrap-2" style=" border-radius: 22px;">
-                        <div class="image-info">
-                            {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-                        </div>
-                        <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            NO Pass
-                        </button>
-                        <div>
-
-
-                            <img src="{{ asset('/assets/images/demo/category-3.jpg') }}" style="
-                            max-height: 313px;
-                         width: fit-content;" alt="Image" class="img-fluid">
-                            <div style="background:white; padding:15px;max-height: 156px;">
-                                <div class="row">
-                                    <div class="col-8">
-
-
-                                        #751163
-                                        <br>
-
-                                        <h2 style="color: black;">Air jardan</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
-                                            alt="">
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                    <div class="image-wrap-2" style=" border-radius: 22px;">
-                        <div class="image-info">
-                            {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-                        </div>
-                        <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            Pass
-                        </button>
-                        <div>
-
-
-                            <img src="{{ asset('/assets/images/img_6.jpg') }}" style="
-                            max-height: 313px;
-                         width: fit-content;" alt="Image" class="img-fluid">
-                            <div style="background:white; padding:15px;max-height: 156px;">
-                                <div class="row">
-                                    <div class="col-8">
-
-
-                                        #751163
-                                        <br>
-
-                                        <h2 style="color: black;">Air jardan</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"
-                                            alt="">
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                {{-- <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Travel</h2>
-              <a href="{{url('/single')}}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-            </div>
-            <img src="{{asset('/assets/images/img_7.jpg')}}" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">People</h2>
-              <a href="{{url('/single')}}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-            </div>
-            <img src="{{asset('/assets/images/img_3.jpg')}}" alt="Image" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">Architecture</h2>
-              <a href="{{url('/single')}}" class="btn btn-outline-white py-2 px-4">More Photos</a>
-            </div>
-            <img src="{{asset('/assets/images/img_4.jpg')}}" alt="Image" class="img-fluid">
-          </div>
-        </div> --}}
 
             </div>
 
-
+            <div class="image-info" style="text-align: center;margin-top: 24px;">
+                {{-- <h2 class="mb-3">Nature</h2> --}}
+                <a href="{{ url('/products') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+            </div>
 
         </div>
 

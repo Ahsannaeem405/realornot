@@ -23,6 +23,11 @@ class CreateExpressesTable extends Migration
             $table->string('express')->nullable();
             $table->string('store')->nullable();
             $table->string('buyer_product_status')->nullable();
+            $table->string('status_expert')->nullable();
+            $table->text('comment')->nullable();
+            $table->text('admin_expert')->nullable();
+
+
 
 
             $table->timestamps();
