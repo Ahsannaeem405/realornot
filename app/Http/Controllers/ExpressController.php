@@ -289,10 +289,18 @@ class ExpressController extends Controller
         $user = User::find($request->idd);
             $user->name =  $request->name;
             $user->email =  $request->email;
-            $user->password = Hash::make($request['password']);
+            $user->paypal_email =  $request->paypal_email;
+            $user->stripe_secret_key=$request->stripe_secret_key;
+            $user->stripe_publiic_key=$request->stripe_publiic_key;
+            if($request['password']!= null){
+                $user->password = Hash::make($request['password']);
+
+            }
+            
+
             $user->update();
 
-                return redirect('/')->with('success', 'Updated Sucessfully');
+                return back()->with('success', 'Updated Sucessfully');
     }
 
     public function update(Request $request)

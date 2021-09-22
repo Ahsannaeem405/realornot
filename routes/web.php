@@ -119,14 +119,8 @@ Route::get('edit_expert/{id}', [App\Http\Controllers\ExpressController::class, '
 Route::get('expert_profile_edit', [App\Http\Controllers\ExpressController::class, 'expert_profile_edit']);
 Route::get('withdraws', [App\Http\Controllers\ExpressController::class, 'index'])->name('.index');
 Route::get('expert_withdraw_form', [App\Http\Controllers\ExpressController::class, 'addform']);
-
-
 Route::post('withdraw_data', [App\Http\Controllers\ExpressController::class, 'formdataAdd']);
-
 Route::get('/Detail/{id}', [App\Http\Controllers\ExpressController::class, 'Detail']);
-
-
-
 Route::get('/product_status/{id}', [App\Http\Controllers\ExpressController::class, 'product_status'])->name('product_status');
 
 
@@ -205,6 +199,13 @@ Route::get('/admin/expert', function () {
 });
 
 
+Route::get('/admin/withdraw', [App\Http\Controllers\admincontroller::class, 'withdraw']);
+Route::any('/admin/success/{id}', [App\Http\Controllers\admincontroller::class, 'success']);
+Route::any('/admin/stripe/{id}', [App\Http\Controllers\StripePaymentController::class, 'admin_stripe']);
+
+
+
+
 
 
 
@@ -252,6 +253,7 @@ Route::get('/paymenterror', [App\Http\Controllers\PaymentController::class, 'pay
 
 Route::any('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripe']);
 Route::post('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripePost'])->name('stripe.post');
+Route::post('stripe2', [App\Http\Controllers\StripePaymentController::class, 'stripePost2'])->name('stripe2.post2');
 
 
 Route::any('brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');

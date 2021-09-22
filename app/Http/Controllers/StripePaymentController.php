@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Express;
 use Illuminate\Http\Request;
+use App\Models\withdraw;
+use App\Models\User;
 use Session;
 use Stripe;
 
@@ -18,6 +20,15 @@ class StripePaymentController extends Controller
     {
         return view('stripe');
     }
+    public function admin_stripe($id)
+    {
+        $amount=withdraw::where('id',$id)->value('amount');
+        $user_id=withdraw::where('id',$id)->value('user_id');
+        $user=User::find($user_id);
+    
+        return view('stripe2' ,compact('amount','user'));
+    }
+    
 
     /**
      * success response method.
@@ -30,7 +41,7 @@ class StripePaymentController extends Controller
 
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-      $charge =  Stripe\Charge::create ([
+        $charge =  Stripe\Charge::create ([
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
@@ -48,6 +59,41 @@ class StripePaymentController extends Controller
         {
             Session::flash('success', 'Payment successful!');
             return back();
+        }
+
+
+
+    }
+    public function stripePost2(Request $request)
+    {
+
+
+
+        Stripe\Stripe::setApiKey($request->secret_key);
+        $charge =  Stripe\Charge::create ([
+                "amount" => $request->amount * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Test payment from itsolutionstuff.com."
+        ]);
+
+
+
+        if($charge->status != 'succeeded')
+        {
+            $wid=withdraw::find($request->id);
+            $wid->Status="Complete";
+            $wid->update();
+            $data =   Session::get('data');
+            // $exprss =Express::find($data);
+            Express::destroy(array('id',$data));
+            return redirect('admin/withdraw');
+
+        }
+        else
+        {
+            Session::flash('success', 'Payment successful!');
+            return redirect('admin/withdraw');
         }
 
 
