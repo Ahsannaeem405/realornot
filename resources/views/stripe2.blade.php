@@ -95,7 +95,7 @@
                                     class='form-control card-expiry-year' placeholder='YYYY' size='4'
                                     type='text' required>
                                     <input type="hidden" name="amount" value="{{$amount}}">
-                                    <input type="hidden" name="id" value="{{$user->id}}">
+                                    <input type="hidden" name="id" value="{{$id}}">
                                     <input type="hidden" name="secret_key" value="{{$user->stripe_secret_key}}">
 
                             </div>

@@ -26,7 +26,7 @@ class StripePaymentController extends Controller
         $user_id=withdraw::where('id',$id)->value('user_id');
         $user=User::find($user_id);
     
-        return view('stripe2' ,compact('amount','user'));
+        return view('stripe2' ,compact('amount','user','id'));
     }
     
 
@@ -78,12 +78,12 @@ class StripePaymentController extends Controller
         ]);
 
 
-
-        if($charge->status != 'succeeded')
-        {
             $wid=withdraw::find($request->id);
             $wid->Status="Complete";
             $wid->update();
+
+        if($charge->status != 'succeeded')
+        {
             $data =   Session::get('data');
             // $exprss =Express::find($data);
             Express::destroy(array('id',$data));

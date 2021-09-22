@@ -20,8 +20,7 @@ Route::get('/cls', function() {
     $run = Artisan::call('config:clear');
     $run = Artisan::call('cache:clear');
     $run = Artisan::call('config:cache');
-    $run = Artisan::call('optimize');
-    $run = Artisan::call('optimize:clear');
+    
 
    Session::flush();
     return 'FINISHED';
@@ -182,30 +181,50 @@ Route::get('/priority', function () {
     return view('priority');
 });
 
-Route::get('/adminn', function () {
-    return view('admin.layouts.main');
+
+
+
+
+
+Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('/index', function () {
+        return view('admin.layouts.main');
+    });
+
+    Route::get('/seller', function () {
+        return view('admin.seller');
+    });
+
+    Route::get('/buyer', function () {
+        return view('admin.buyer');
+    });
+
+    Route::get('/expert', function () {
+        return view('admin.expert');
+    });
+    Route::get('/brands', function () {
+        return view('admin.brands');
+    });
+
+    Route::get('/jobs', function () {
+        return view('admin.jobs');
+    });
+
+
+
+    Route::get('/withdraw', [App\Http\Controllers\admincontroller::class, 'withdraw']);
+    Route::any('/success/{id}', [App\Http\Controllers\admincontroller::class, 'success']);
+    Route::any('/stripe/{id}', [App\Http\Controllers\StripePaymentController::class, 'admin_stripe']);
+
+    Route::any('add_brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
+    Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
+    Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');
+
+
+
+
 });
-
-Route::get('/admin/seller', function () {
-    return view('admin.seller');
-});
-
-Route::get('/admin/buyer', function () {
-    return view('admin.buyer');
-});
-
-Route::get('/admin/expert', function () {
-    return view('admin.expert');
-});
-
-
-Route::get('/admin/withdraw', [App\Http\Controllers\admincontroller::class, 'withdraw']);
-Route::any('/admin/success/{id}', [App\Http\Controllers\admincontroller::class, 'success']);
-Route::any('/admin/stripe/{id}', [App\Http\Controllers\StripePaymentController::class, 'admin_stripe']);
-
-
-
-
 
 
 
@@ -256,10 +275,6 @@ Route::post('stripe', [App\Http\Controllers\StripePaymentController::class, 'str
 Route::post('stripe2', [App\Http\Controllers\StripePaymentController::class, 'stripePost2'])->name('stripe2.post2');
 
 
-Route::any('brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
-Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
-
-Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');
 
 
 
@@ -286,13 +301,6 @@ Route::middleware(['auth','Expert'])->group(function (){
         return view('error');
     });
 
-    Route::get('/view/brands', function () {
-        return view('admin.brands');
-    });
-
-    Route::get('/view/jobs', function () {
-        return view('admin.jobs');
-    });
 
 
 
