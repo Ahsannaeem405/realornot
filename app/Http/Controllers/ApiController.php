@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -14,7 +15,7 @@ class ApiController extends Controller
        if (!$user) {
            return response()->json(['success' => false, 'message' => 'Login Fail, please check email and password']);
        }
-       if (!Hash::check($request->password, $user->password)) {
+       if (!\Hash::check($request->password, $user->password)) {
            return response()->json(['success' => false, 'message' => 'Login Fail, please check email and password']);
        }
        else{
