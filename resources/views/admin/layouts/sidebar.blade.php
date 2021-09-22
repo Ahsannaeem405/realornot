@@ -68,7 +68,7 @@
             <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Brands</span></a>
                 <ul class="menu-content">
 
-                    <li class="{{ Request::is('view/brands')? 'active' : '' }}" ><a href="{{url('view/brands')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Brands</span></a>
+                    <li class="{{ Request::is('admin/brands')? 'active' : '' }}" ><a href="{{url('admin/brands')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Brands</span></a>
                     </li>
 
                 </ul>
@@ -79,7 +79,7 @@
             <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Jobs</span></a>
                 <ul class="menu-content">
 
-                    <li class="{{ Request::is('view/jobs')? 'active' : '' }}"><a href="{{url('view/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
+                    <li class="{{ Request::is('admin/jobs')? 'active' : '' }}"><a href="{{url('admin/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
                     </li>
 
                 </ul>
