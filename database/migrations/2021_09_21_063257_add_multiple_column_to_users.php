@@ -14,9 +14,9 @@ class AddMultipleColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-             $table->string('stripe_publiic_key')->nullable();
+            $table->string('stripe_publiic_key')->nullable();
             $table->string('stripe_secret_key')->nullable();
-           $table->string('paypal_email')->nullable();
+            $table->string('paypal_email')->nullable();
         });
     }
 

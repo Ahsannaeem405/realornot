@@ -80,8 +80,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Password</label>
-                  <input type="hidden" name="role"  value="expert" id="expert">
-                  <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
+                  <input id="password" type="password" placeholder="Password" class="form-control" name="password" >
 
                 </div>
               </div>
@@ -89,8 +88,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Stripe Public Key</label>
-                  <input type="hidden" name="role"  value="expert" id="expert">
-                  <input id="stripepublickey" type="text" placeholder="Stripe Public Key" class="form-control" name="stripepublickey" required>
+                  <input id="stripepublickey" type="text" placeholder="Stripe Public Key" class="form-control" name="stripe_publiic_key" value="{{ $users->stripe_publiic_key}}">
 
                 </div>
               </div>
@@ -98,8 +96,7 @@ $brand = Brand::all();
 
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Stripe Secret Key</label>
-                  <input type="hidden" name="role"  value="expert" id="expert">
-                  <input id="stripesecertkey" type="text" placeholder="Stripe Secrete Key" class="form-control" name="stripesecretekey" required>
+                  <input id="stripesecertkey" type="text" placeholder="Stripe Secrete Key" class="form-control" name="stripe_secret_key" value="{{ $users->stripe_secret_key}}">
 
                 </div>
               </div>
@@ -108,7 +105,7 @@ $brand = Brand::all();
                 <div class="col-md-12">
                   <label class="text-white" for="subject">PayPal Email</label>
                   <input type="hidden" name="role"  value="expert" id="expert">
-                  <input id="paypalemail" type="email" placeholder="PayPal Eamil " class="form-control" name="paypalemail" required>
+                  <input id="paypalemail" type="email" placeholder="PayPal Eamil " class="form-control" name="paypal_email" value="{{ $users->paypal_email}}">
 
                 </div>
               </div>

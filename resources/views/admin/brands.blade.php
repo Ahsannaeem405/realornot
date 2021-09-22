@@ -68,9 +68,9 @@
                             style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 32px, 0px);">
 
                             <a class="btn"
-                                href="{{ url('edit_brand', $users->id) }}" data-toggle="modal" data-target="#editModal{{ $users->id }}">Edit</a>
+                                href="{{ url('admin/edit_brand', $users->id) }}" data-toggle="modal" data-target="#editModal{{ $users->id }}">Edit</a>
                             <a class="btn"
-                                href="{{ url('delete_brand', $users->id) }}">Delete</a>
+                                href="{{ url('admin/delete_brand', $users->id) }}">Delete</a>
 
 
                         </div>
@@ -95,7 +95,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form action="{{url('edit_brand',[$users->id])}}">
+                    <form action="{{url('admin/edit_brand',[$users->id])}}">
                     <div class="modal-body">
 
                           @csrf
@@ -153,7 +153,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{route('brand')}}">
+        <form action="{{url('admin/add_brand')}}">
         <div class="modal-body">
 
               @csrf
