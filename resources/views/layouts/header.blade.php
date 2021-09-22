@@ -26,6 +26,16 @@
               @if(Auth::user()->role == 'expert')
               <li><a href="{{url('/Jobs_detail')}}">Jobs</a></li>
               <li><a href="{{url('/Jobs_history')}}">Job History</a></li>
+              <div class="dropdown">
+  <li class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="{{url('/expert_profile_edit')}}">My Profile</a>
+  </li>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li class="dropdown-item"><a href="{{url('/withdraws')}}">WithDraw</a></li>
+  </div>
+</div>
+
+              
 
 
               @endif
@@ -135,9 +145,9 @@
           </div>
           <div class="modal-body" style="text-align: center">
             <form action=""></form>
-            <a href="{{url('buyer')}}" type="button"   class="btn btn-primary">Buyer</a><p></p>
-            <a href="{{url('seller')}}" type="button" class="btn btn-danger">Seller</a><p></p>
-            <a href="" type="button" data-toggle="modal" data-target="#expert_signup"  class="btn btn-secondary">Expert</a>
+            <a href="{{url('buyer')}}" type="button"   class="btn btn-primary" data-dismiss="modal">Buyer</a><p></p>
+            <a href="{{url('seller')}}" type="button" class="btn btn-danger" data-dismiss="modal">Seller</a><p></p>
+            <a href="" type="button" data-toggle="modal" data-target="#expert_signup"  class="btn btn-secondary" data-dismiss="modal">Expert</a>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -168,7 +178,7 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
-// $(document).ready(function(){
+$(document).ready(function(){
 
 //     $("li").click(function(){
 //         alert(1);
@@ -180,7 +190,14 @@
 //     $(this).addClass("active");
 //   }
 // });
-// });
+$('.btn').click(function(){
+  $('#signup').hide();
+});
+});
+$('.dropdown-menu').click(function{
+  $(this).css('display','block');
+});
   </script>
 
 
+    

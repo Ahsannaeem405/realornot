@@ -48,7 +48,7 @@
 
   <script>
    $( document ).ready(function() {
-       alert('ii');
+       // alert('ii');
     $("#Stripe").click(function(){
         $( "#Stripe" ).html( $( "input:checked" ).val() + " is checked!" );
     });

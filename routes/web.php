@@ -85,10 +85,6 @@ Route::get('/signup_expert', function () {
     return view('signup_expert');
 });
 
-
-
-
-
 // Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::get('/authenticate', function () {
@@ -107,6 +103,8 @@ Route::POST('/register_buyer', [App\Http\Controllers\ExpressController::class, '
 
 Route::POST('/update', [App\Http\Controllers\ExpressController::class, 'update'])->name('update');
 
+Route::POST('/expert_profile_update', [App\Http\Controllers\ExpressController::class, 'expert_profile_update'])->name('update');
+
 
 Route::POST('/Store_express', [App\Http\Controllers\ExpressController::class, 'create'])->name('Store_express');
 
@@ -118,6 +116,12 @@ Route::get('edit_buyer/{id}', [App\Http\Controllers\ExpressController::class, 'e
 
 Route::get('edit_expert/{id}', [App\Http\Controllers\ExpressController::class, 'edit_expert']);
 
+Route::get('expert_profile_edit', [App\Http\Controllers\ExpressController::class, 'expert_profile_edit']);
+Route::get('withdraws', [App\Http\Controllers\ExpressController::class, 'index'])->name('.index');
+Route::get('expert_withdraw_form', [App\Http\Controllers\ExpressController::class, 'addform']);
+
+
+Route::post('withdraw_data', [App\Http\Controllers\ExpressController::class, 'formdataAdd']);
 
 Route::get('/Detail/{id}', [App\Http\Controllers\ExpressController::class, 'Detail']);
 
@@ -266,15 +270,16 @@ Route::any('admin_Turn_down/{id}', [App\Http\Controllers\ExpressController::clas
 
 
 
-
 Route::middleware(['auth','Expert'])->group(function (){
 
         Route::get('/Jobs_detail', function () {
             return view('Jobs_detail');
         });
+        
 
 
     });
+    
     Route::get('/error', function () {
         return view('error');
     });
@@ -290,3 +295,4 @@ Route::middleware(['auth','Expert'])->group(function (){
 
 
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

@@ -113,7 +113,7 @@ $brand = Brand::all();
                 <div class="col-md-12">
                   <label class="text-white" for="subject">Password</label>
                   <input type="hidden" name="role"  value="expert" id="expert">
-                  <input id="password" type="text" placeholder="Password" class="form-control" name="password" required >
+                  <input id="password" type="password" placeholder="Password" class="form-control" name="password" required >
 
                 </div>
               </div>
