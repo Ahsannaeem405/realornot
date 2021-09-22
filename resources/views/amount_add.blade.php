@@ -27,16 +27,29 @@ use App\Models\Brand;
 $brand = Brand::all();
 
 ?>
+   
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
+          @if (Session::has('success'))
+<div class="alert alert-success" role="alert" >
+  <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{Session::get('success')}}</strong>
+</div>
+@endif
 
+
+@if (Session::has('error'))
+<div class="alert alert-danger" role="alert" >  <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ Session::get('error') }}</strong>
+</div>
+@endif
         <div class="row justify-content-center">
 
           <div class="col-md-7">
             <div class="row mb-5">
               <div class="col-12 ">
-                <h2 class="site-section-heading text-center">Add Withdraw Form</h2>
+                <h2 class="site-section-heading text-center">Add Withdraw</h2>
               </div>
             </div>
           </div>
@@ -53,14 +66,7 @@ $brand = Brand::all();
                     <input type="hidden" value="pending" name="expert_status">
 
 
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-white" for="email">Name</label>
-                  <input id="Name" type="text " placeholder="Name" class="form-control "  name="name" value="{{ old('Name') }}" required>
-
-                </div>
-              </div>
+    
 
 
               
@@ -135,4 +141,4 @@ $brand = Brand::all();
 
 
   @endsection
-                            
+                                                                                    

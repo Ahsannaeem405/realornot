@@ -469,15 +469,23 @@ public function admin_Turn_down( $id){
         $withdraws->user_id =$id;
         $withdraws->method=$request->paymentmethod;
         $withdraws->amount=  $request->amount;
-        
-        $withdraws->save();
+        if($request->amount <= Auth::user()->point)
+        {
+            $withdraws->save();
+        }
+        else
+        {
+        return back()->with('error', 'Sorry, your amount exceed to your wallet');
+
+        }
 
     
         return back()->with('success', 'Uploaded sucessfully');
     }
 public function index() {
   // get the first page of users manually
-  $withdraws = \App\Models\withdraw::all();
+ $id = Auth::user()->id;
+  $withdraws = \App\Models\withdraw::all()->where('user_id','=',$id);
  
   return view('withdraw', compact('withdraws'));
 }

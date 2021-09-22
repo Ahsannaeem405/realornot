@@ -38,46 +38,51 @@
               
             </div>
           </div>
-          <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Payment Method</th>
-                <th>Amount</th>
-                <th>Status</th>
-              
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($withdraws as $withdraw)
-            <tr>
-                <td>{{$withdraw->created_at}}</td>
-                <th>{{$withdraw->method}}</th>
-                <td>{{$withdraw->Amount}}</td>
-                <td>{{$withdraw->Status}}</td>
-            </tr>
-            @endforeach
-        </tfoot>
-    </table>
+          <table class="table bg-light text-dark dataex-html5-selectors">
+                                    <thead style="color:white; font-size:3rem">
+                                        <tr role="row" class="bg-primary text-white">
+                                            <th class="sorting_asc " tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id: activate to sort column descending" style="width: 193.887px;">Date</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Payment Method</th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 292.375px;">Amount</th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Phone: activate to sort column ascending" style="width: 140.788px;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $i = 1;
+                                        ?>
+                                        @foreach ($withdraws as $withdraw)
 
+                                            <tr role="row" class="odd">
+
+
+                                               <td>{{$withdraw->created_at}}</td>
+                                                <td>{{$withdraw->method}}</td>
+                                                <td>{{$withdraw->Amount}}</td>
+                                                <td>{{$withdraw->Status}}</td>
+                                                
+
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+
+
+
+
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    
-      </div>
-    </div>
-
-    <div class="footer py-4">
-
-    </div>
-
-
-
-
-
-  </div>
+    </section>
 
   @endsection
-@section('js')
+<!-- @section('js')
 <script type="text/javascript">
   $(document).ready(function() {
     $('#example').DataTable( {
@@ -88,4 +93,4 @@
 } );
 </script>
 
-@endsection                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+@endsection                 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

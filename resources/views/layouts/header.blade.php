@@ -193,11 +193,16 @@ $(document).ready(function(){
 $('.btn').click(function(){
   $('#signup').hide();
 });
+$('#dropdownMenuButton').click(function(){
+
+  $('.dropdown-menu').css('display','block');
+  $('body').click(function(){
+    $('.dropdown-menu').hide();
+  });
 });
-$('.dropdown-menu').click(function{
-  $(this).css('display','block');
 });
+
   </script>
 
 
-    
+                                                                
