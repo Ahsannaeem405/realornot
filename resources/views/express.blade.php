@@ -22,7 +22,11 @@
 use App\Models\Brand;
 $brand = Brand::all();
 
+use App\Models\Points;
+$point = Points::where('type', 'Express')->first();
+
 ?>
+
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
@@ -124,6 +128,8 @@ $brand = Brand::all();
               </div>
               <input type="hidden" name="role" value="express" id="">
 
+              <input type="hidden" name="priority" value="{{  $point->points}}" id="">
+
 
               <input type="radio" class="" checked id="Stripe" name="Paymentype" value="Stripe">  Pay with Stripe <br>
 
@@ -162,12 +168,12 @@ $brand = Brand::all();
   </div>
 
   <script>
-   $( document ).ready(function() {
-       alert('ii');
-    $("#Stripe").click(function(){
-        $( "#Stripe" ).html( $( "input:checked" ).val() + " is checked!" );
-    });
-});
+//    $( document ).ready(function() {
+//        alert('ii');
+//     $("#Stripe").click(function(){
+//         $( "#Stripe" ).html( $( "input:checked" ).val() + " is checked!" );
+//     });
+// });
 </script>
 
   @endsection

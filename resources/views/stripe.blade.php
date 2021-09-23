@@ -23,6 +23,13 @@
     }
 </style>
 
+<?php
+use App\Models\Points;
+  $points = Points::where('type', 'Express')->first();
+  $point = Points::where('type', 'Priority')->first();
+
+?>
+
 
 
 
@@ -74,6 +81,12 @@
                                     type='text'>
                             </div>
                         </div>
+                        <?php
+
+$value = session('points');
+?>
+
+                        <input type="hidden" name="pointexp" id="" value="{{$value}}">
 
                         <div class='form-row row'>
                             <div class='col-xs-12 col-md-4 form-group cvc required'>

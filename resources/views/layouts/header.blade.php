@@ -107,6 +107,13 @@
 
 
   </header>
+  <?php
+use App\Models\Points;
+  $points = Points::where('type', 'Express')->first();
+  $point = Points::where('type', 'Priority')->first();
+
+  ?>
+  {{-- @dd($points->points) --}}
 
   <div class="modal fade" id="Authentication" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -114,10 +121,10 @@
 
         <div class="modal-body" style="text-align: center;">
             <a href="{{url('express')}}" type="button" class="btn btn-primary">Express</a>
-            <p style="margin-bottom: -3px; margin-top: 3px;">30$</p>
+            <p style="margin-bottom: -3px; margin-top: 3px;">{{$points->points}}$</p>
             <p>50-100 mint</p>
             <a href="{{url('priority')}}" class="btn btn-danger">Priority</a>
-            <p style="margin-bottom: -3px; margin-top: 3px;">20-40$</p>
+            <p style="margin-bottom: -3px; margin-top: 3px;">{{  $point->points}}$</p>
             <p>2-48 hours</p>
 
         </div>

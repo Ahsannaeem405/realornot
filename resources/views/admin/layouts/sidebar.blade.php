@@ -18,7 +18,7 @@
             </li>
 
             <li class="{{ Request::is('admin/withdraw')? 'active' : '' }}"><a href="{{url('admin/withdraw')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">withdraw</span></a>
-            </li> 
+            </li>
 
 
 
@@ -80,6 +80,29 @@
                 <ul class="menu-content">
 
                     <li class="{{ Request::is('admin/jobs')? 'active' : '' }}"><a href="{{url('admin/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Payment</span></a>
+                <ul class="menu-content">
+
+                    <li class="{{ Request::is('admin/points')? 'active' : '' }}"><a href="{{url('/admin/points')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Payment</span></a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+
+            <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Points For Expert</span></a>
+                <ul class="menu-content">
+
+                    <li class="{{ Request::is('/admin/expert_points')? 'active' : '' }}"><a href="{{url('/admin/expert_points')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Points</span></a>
                     </li>
 
                 </ul>

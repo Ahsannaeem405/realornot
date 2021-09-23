@@ -30,16 +30,20 @@ class PaymentController extends Controller
 
     public function charge(Request $request)
     {
+        $value = session('points');
+        // dd($value);
         // if($request->input('submit'))
         // {
             try {
                 $response = $this->gateway->purchase(array(
-                    'amount' => 100,
+                    'amount' => $value,
                     'currency' => env('PAYPAL_CURRENCY'),
                     'returnUrl' => url('paymentsuccess'),
                     'cancelUrl' => url('paymenterror'),
                 ))->send();
 
+
+                $request->session()->forget('points');
                 if ($response->isRedirect()) {
                     $response->redirect(); // this will automatically forward the customer
                 } else {

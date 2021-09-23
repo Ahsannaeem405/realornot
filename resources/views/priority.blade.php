@@ -25,6 +25,14 @@
     ?>
 
 
+<?php
+use App\Models\Points;
+
+  $point = Points::where('type', 'Priority')->first();
+
+  ?>
+
+
     <div class="site-section"  data-aos="fade">
       <div class="container">
 
@@ -82,6 +90,7 @@
               </div>
               <input type="hidden" name="role" value="priority" id="">
 
+              <input type="hidden" name="priority" value="{{  $point->points}}" id="">
 
 
               <div class="row form-group">

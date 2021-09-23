@@ -20,7 +20,8 @@ Route::get('/cls', function() {
     $run = Artisan::call('config:clear');
     $run = Artisan::call('cache:clear');
     $run = Artisan::call('config:cache');
-    
+    $run = Artisan::call('optimize');
+    $run = Artisan::call('optimize:clear');
 
    Session::flush();
     return 'FINISHED';
@@ -84,6 +85,10 @@ Route::get('/signup_expert', function () {
     return view('signup_expert');
 });
 
+
+
+
+
 // Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::get('/authenticate', function () {
@@ -102,8 +107,6 @@ Route::POST('/register_buyer', [App\Http\Controllers\ExpressController::class, '
 
 Route::POST('/update', [App\Http\Controllers\ExpressController::class, 'update'])->name('update');
 
-Route::POST('/expert_profile_update', [App\Http\Controllers\ExpressController::class, 'expert_profile_update'])->name('update');
-
 
 Route::POST('/Store_express', [App\Http\Controllers\ExpressController::class, 'create'])->name('Store_express');
 
@@ -115,11 +118,11 @@ Route::get('edit_buyer/{id}', [App\Http\Controllers\ExpressController::class, 'e
 
 Route::get('edit_expert/{id}', [App\Http\Controllers\ExpressController::class, 'edit_expert']);
 
-Route::get('expert_profile_edit', [App\Http\Controllers\ExpressController::class, 'expert_profile_edit']);
-Route::get('withdraws', [App\Http\Controllers\ExpressController::class, 'index'])->name('.index');
-Route::get('expert_withdraw_form', [App\Http\Controllers\ExpressController::class, 'addform']);
-Route::post('withdraw_data', [App\Http\Controllers\ExpressController::class, 'formdataAdd']);
+
 Route::get('/Detail/{id}', [App\Http\Controllers\ExpressController::class, 'Detail']);
+
+
+
 Route::get('/product_status/{id}', [App\Http\Controllers\ExpressController::class, 'product_status'])->name('product_status');
 
 
@@ -181,50 +184,23 @@ Route::get('/priority', function () {
     return view('priority');
 });
 
-
-
-
-
-
-Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
-
-    Route::get('/index', function () {
-        return view('admin.layouts.main');
-    });
-
-    Route::get('/seller', function () {
-        return view('admin.seller');
-    });
-
-    Route::get('/buyer', function () {
-        return view('admin.buyer');
-    });
-
-    Route::get('/expert', function () {
-        return view('admin.expert');
-    });
-    Route::get('/brands', function () {
-        return view('admin.brands');
-    });
-
-    Route::get('/jobs', function () {
-        return view('admin.jobs');
-    });
-
-
-
-    Route::get('/withdraw', [App\Http\Controllers\admincontroller::class, 'withdraw']);
-    Route::any('/success/{id}', [App\Http\Controllers\admincontroller::class, 'success']);
-    Route::any('/stripe/{id}', [App\Http\Controllers\StripePaymentController::class, 'admin_stripe']);
-
-    Route::any('add_brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
-    Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
-    Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');
-
-
-
-
+Route::get('/adminn', function () {
+    return view('admin.layouts.main');
 });
+
+Route::get('/admin/seller', function () {
+    return view('admin.seller');
+});
+
+Route::get('/admin/buyer', function () {
+    return view('admin.buyer');
+});
+
+Route::get('/admin/expert', function () {
+    return view('admin.expert');
+});
+
+
 
 
 
@@ -272,9 +248,12 @@ Route::get('/paymenterror', [App\Http\Controllers\PaymentController::class, 'pay
 
 Route::any('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripe']);
 Route::post('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripePost'])->name('stripe.post');
-Route::post('stripe2', [App\Http\Controllers\StripePaymentController::class, 'stripePost2'])->name('stripe2.post2');
 
 
+Route::any('brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
+Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
+
+Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');
 
 
 
@@ -285,6 +264,22 @@ Route::any('admin_Approve/{id}', [App\Http\Controllers\ExpressController::class,
 Route::any('admin_Turn_down/{id}', [App\Http\Controllers\ExpressController::class, 'admin_Turn_down']);
 
 
+Route::any('/admin/express_point', [App\Http\Controllers\ExpressController::class, 'express_point']);
+
+Route::any('delete_express/{id}', [App\Http\Controllers\ExpressController::class, 'delete_express']);
+
+Route::any('delete_expert/{id}', [App\Http\Controllers\ExpressController::class, 'delete_expert']);
+
+
+
+Route::any('/admin/priority_point', [App\Http\Controllers\ExpressController::class, 'priority_point']);
+
+Route::any('/admin/expert_point', [App\Http\Controllers\ExpressController::class, 'expert_point']);
+
+
+
+
+
 
 
 Route::middleware(['auth','Expert'])->group(function (){
@@ -292,17 +287,31 @@ Route::middleware(['auth','Expert'])->group(function (){
         Route::get('/Jobs_detail', function () {
             return view('Jobs_detail');
         });
-        
 
 
     });
-    
     Route::get('/error', function () {
         return view('error');
     });
 
+    Route::get('/admin/brands', function () {
+        return view('admin.brands');
+    });
+
+    Route::get('/admin/jobs', function () {
+        return view('admin.jobs');
+    });
+
+    Route::get('/admin/points', function () {
+        return view('admin.points');
+    });
+
+    Route::get('/admin/expert_points', function () {
+        return view('admin.expert_points');
+    });
 
 
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+

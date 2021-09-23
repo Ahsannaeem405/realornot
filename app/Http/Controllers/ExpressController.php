@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ExpertPoint;
 use App\Models\Express;
+use App\Models\Points;
 use App\Models\User;
 
 use Exception;
@@ -43,10 +45,38 @@ class ExpressController extends Controller
 
         Session::put('data' , $express->id);
         if($request->Paymentype == 'Stripe'){
+            $points = Points::where('type', 'Express')->first();
+            $point = Points::where('type', 'Priority')->first();
+
+            if($request->role == 'priority')
+            {
+                $points =     $point->points;
+            }
+            else
+            {
+                 $points =     $points->points;
+
+            }
+            session(['points' => $points]);
+            $value = session('points');
+// dd(   $value );
             return redirect('stripe');
 
         }
         else{
+            $points = Points::where('type', 'Express')->first();
+            $point = Points::where('type', 'Priority')->first();
+            // dd($request);
+            if($request->role == 'priority')
+            {
+                $points =     $point->points;
+            }
+            else
+            {
+                $points =     $points->points;
+            }
+            session(['points' => $points]);
+
 
             return redirect('charge');
 
@@ -494,6 +524,73 @@ public function index() {
 
   return view('withdraw', compact('withdraws'));
 }
+
+
+public function express_point( Request $request) {
+
+
+    $new = Points::find(4);
+
+    $new->points = $request->express_point;
+    $new->type  =  'Express';
+   $new->save();
+
+    return back()->with('suceess', 'Point added successfully');
+
+
+  }
+
+
+
+
+
+  public function delete_express( Request $request, $id) {
+
+    Points::destroy(array('id',$id));
+
+    return back()->with('suceess', 'Deleted successfully');
+
+  }
+
+
+
+  public function delete_expert( Request $request, $id) {
+
+    ExpertPoint::destroy(array('id',$id));
+
+    return back()->with('suceess', 'Deleted successfully');
+
+  }
+
+
+
+
+
+  public function priority_point( Request $request) {
+    $new = Points::find(5);
+
+    // $new = new Points();
+
+    $new->points = $request->priority_point;
+    $new->type  =  'Priority';
+   $new->save();
+
+    return back()->with('suceess', 'Point added successfully');
+
+
+  }
+
+
+  public function expert_point( Request $request) {
+      $new =  ExpertPoint::find(1);
+      $new->expert_point =  $request->expert_point;
+      $new->save();
+
+    return back()->with('suceess', 'Point added successfully');
+
+
+  }
+
 
 
 }

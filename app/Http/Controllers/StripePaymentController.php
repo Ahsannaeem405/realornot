@@ -25,10 +25,10 @@ class StripePaymentController extends Controller
         $amount=withdraw::where('id',$id)->value('amount');
         $user_id=withdraw::where('id',$id)->value('user_id');
         $user=User::find($user_id);
-    
+
         return view('stripe2' ,compact('amount','user','id'));
     }
-    
+
 
     /**
      * success response method.
@@ -37,12 +37,13 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
+        // dd($request->pointexp);
 
 
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $charge =  Stripe\Charge::create ([
-                "amount" => 100 * 100,
+                "amount" => $request->pointexp * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from itsolutionstuff.com."
