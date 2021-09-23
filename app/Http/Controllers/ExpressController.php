@@ -296,7 +296,7 @@ class ExpressController extends Controller
                 $user->password = Hash::make($request['password']);
 
             }
-            
+
 
             $user->update();
 
@@ -381,29 +381,29 @@ public function product_status(Request $request, $id){
 
 }
 
-public function admin_Approve( $id){
+// public function admin_Approve( $id){
 
 
-    $product =Express::find($id );
+//     $product =Express::find($id );
 
-    if($product->status_expert == '0')
-    {
-        // dd( 'ppp');
-        $product->status_expert = null;
-        $product->comment = null;
-    }
-    else{
-        $product->status_expert = 2;
+//     if($product->status_expert == '0')
+//     {
+//         // dd( 'ppp');
+//         $product->status_expert = null;
+//         $product->comment = null;
+//     }
+//     else{
+//         $product->status_expert = 2;
 
-    }
-    // dd( $product->status_expert);
+//     }
+//     // dd( $product->status_expert);
 
 
-    $product->update();
+//     $product->update();
 
-    return back()->with('success', 'Status updated successfully');
+//     return back()->with('success', 'Status updated successfully');
 
-}
+// }
 
 public function admin_Turn_down( $id){
 
@@ -469,19 +469,18 @@ public function admin_Turn_down( $id){
         $withdraws->user_id =$id;
         $withdraws->method=$request->paymentmethod;
         $withdraws->amount=  $request->amount;
-        
+
         $withdraws->save();
 
-    
+
         return back()->with('success', 'Uploaded sucessfully');
     }
 public function index() {
   // get the first page of users manually
   $withdraws = \App\Models\withdraw::all();
- 
+
   return view('withdraw', compact('withdraws'));
 }
 
 
 }
-                                                                                                                                                                                                                                
