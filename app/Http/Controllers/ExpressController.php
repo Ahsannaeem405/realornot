@@ -581,7 +581,6 @@ public function express_point( Request $request) {
 
     return back()->with('suceess', 'Point added successfully');
 
-
   }
 
 
