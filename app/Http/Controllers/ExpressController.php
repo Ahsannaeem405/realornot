@@ -415,6 +415,8 @@ public function admin_Approve( $id){
 
 
     $product =Express::find($id );
+    $ExpertPoint = ExpertPoint::first();
+
 
     if($product->status_expert == '0')
     {
@@ -424,10 +426,9 @@ public function admin_Approve( $id){
     }
     else{
         $product->status_expert = 2;
+        $product->expert_point += $ExpertPoint->expert_point;
 
     }
-    // dd( $product->status_expert);
-
 
     $product->update();
 
@@ -438,10 +439,13 @@ public function admin_Approve( $id){
 public function admin_Turn_down( $id){
 
     $product =Express::find($id );
+    $ExpertPoint = ExpertPoint::first();
+
 
     // @dd( $product->status_expert);
     if( $product->status_expert == '0')
     {
+        $product->expert_point += $ExpertPoint->expert_point;
 
         $product->status_expert = 2;
         $product->admin_expert = 'No Pass';

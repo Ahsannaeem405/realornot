@@ -46,10 +46,27 @@ $express = Express::get();
                             {{-- <h2 class="mb-3">Nature</h2> --}}
                             <a href="{{ url('/single') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
                         </div>
+                        @if($expresss->status_expert == '2')
+                        @if($expresss->admin_expert == 'No Pass')
                         <button class="mt-3 ml-3 btn btn-danger"
-                            style="position: absolute;    border-radius: 8px;z-index: 100; ">
-                            Pass
-                        </button>
+                        style="position: absolute; background:danger; border-color:danger;   border-radius: 8px;z-index: 100; ">
+                        No Pass
+                    </button>
+                        @else
+                        <button class="mt-3 ml-3 btn btn-danger"
+                        style="position: absolute; background:#37b649; border-color:#37b649;   border-radius: 8px;z-index: 100; ">
+                        Pass
+                    </button>
+                        @endif
+
+
+                        @else
+                        <button class="mt-3 ml-3 btn btn-danger"
+                        style="position: absolute;    border-radius: 8px;z-index: 100; ">
+                        No pass
+                    </button>
+
+                        @endif
                         <div>
 
                             <img src="{{ asset('/uploads/'.$expresss->photos) }}" style="

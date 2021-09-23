@@ -250,7 +250,7 @@ Route::any('stripe', [App\Http\Controllers\StripePaymentController::class, 'stri
 Route::post('stripe', [App\Http\Controllers\StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
 
-Route::any('brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
+Route::any('admin/add_brand', [App\Http\Controllers\BrandController::class, 'create'])->name('brand');
 Route::any('edit_brand/{id}', [App\Http\Controllers\BrandController::class, 'edit'])->name('edit_brand');
 
 Route::any('delete_brand/{id}', [App\Http\Controllers\BrandController::class, 'destroy'])->name('delete_brand');

@@ -27,6 +27,7 @@ class CreateExpressesTable extends Migration
             $table->string('status_expert')->nullable();
             $table->text('comment')->nullable();
             $table->text('admin_expert')->nullable();
+            $table->string('expert_point')->nullable();
 
 
 

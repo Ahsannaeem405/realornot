@@ -121,10 +121,12 @@ use App\Models\Points;
 
         <div class="modal-body" style="text-align: center;">
             <a href="{{url('express')}}" type="button" class="btn btn-primary">Express</a>
-            <p style="margin-bottom: -3px; margin-top: 3px;">{{$points->points}}$</p>
+            <p style="margin-bottom: -3px; margin-top: 3px;"> @if (isset($points->points))
+
+          {{$points->points}}$    @endif</p>
             <p>50-100 mint</p>
             <a href="{{url('priority')}}" class="btn btn-danger">Priority</a>
-            <p style="margin-bottom: -3px; margin-top: 3px;">{{  $point->points}}$</p>
+            <p style="margin-bottom: -3px; margin-top: 3px;">  @if (isset($points->points)) {{  $point->points}}$   @endif</p>
             <p>2-48 hours</p>
 
         </div>

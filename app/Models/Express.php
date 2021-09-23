@@ -21,6 +21,8 @@ class Express extends Model
         'status_expert',
          'comment',
          'admin_expert',
+         'expert_point',
+
 
 
 
