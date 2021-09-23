@@ -55,6 +55,10 @@ class Kernel extends HttpKernel
 
             \App\Http\Middleware\Expert::class,
         ],
+        'admin' => [
+
+            \App\Http\Middleware\admin::class,
+        ],
 
 
 

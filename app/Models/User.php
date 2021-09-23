@@ -31,6 +31,10 @@ class User extends Authenticatable
         'google_id',
         'facebook_id',
         'expert_status',
+        'stripe_publiic_key',
+        'stripe_secret_key',
+        'paypal_email',
+
 
 
 

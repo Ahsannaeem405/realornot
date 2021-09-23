@@ -19,8 +19,20 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       />
+      @if (Session::has('success'))
+    <div class="alert alert-success" data-dismiss="alert">
+        <ul>
+            <li>{{ Session::get('success') }}</li>
+        </ul>
+    </div>
+@endif
 
         <style>
+        .alert
+        {
+            background-color: lightgreen;
+            color: blue;
+        }
             @media screen and (max-width: 800px) {
                 #wetrust {
                     font-size: 40px !important;

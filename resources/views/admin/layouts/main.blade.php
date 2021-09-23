@@ -101,8 +101,9 @@
 
 
 
-<script src="{{asset('admin//app-assets/vendors/js/extensions/jquery.steps.min.js')}}"></script>
-<script src="{{asset('admin//app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('admin/app-assets/vendors/js/extensions/jquery.steps.min.js')}}"></script>
+<script src="{{asset('admin/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+
 <script src="{{asset('admin/app-assets/js/scripts/forms/wizard-steps.js')}}"></script>
 
 <script>

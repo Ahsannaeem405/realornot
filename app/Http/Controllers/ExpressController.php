@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Express;
 use App\Models\User;
+
 use Exception;
 use Session;
 use Illuminate\Http\Request;
@@ -272,12 +273,35 @@ class ExpressController extends Controller
 
     }
 
+    public function expert_profile_edit(){
+
+        // dd($id);
+        $users = User::find(Auth::id());
 
 
+        return view('expert_profile_edit', compact('users'));
 
+    }
 
+    public function expert_profile_update(Request $request)
+    {
 
+        $user = User::find($request->idd);
+            $user->name =  $request->name;
+            $user->email =  $request->email;
+            $user->paypal_email =  $request->paypal_email;
+            $user->stripe_secret_key=$request->stripe_secret_key;
+            $user->stripe_publiic_key=$request->stripe_publiic_key;
+            if($request['password']!= null){
+                $user->password = Hash::make($request['password']);
 
+            }
+            
+
+            $user->update();
+
+                return back()->with('success', 'Updated Sucessfully');
+    }
 
     public function update(Request $request)
     {
@@ -425,17 +449,6 @@ public function admin_Turn_down( $id){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     public function delete($id){
         // dd($id);
 
@@ -444,9 +457,31 @@ public function admin_Turn_down( $id){
 
     }
 
+    public function addform(){
 
+        return view('amount_add');
+    }
 
+    public function formdataAdd(Request $request){
 
+        $id = Auth::user()->id;
+        $withdraws = new \App\Models\withdraw();
+        $withdraws->user_id =$id;
+        $withdraws->method=$request->paymentmethod;
+        $withdraws->amount=  $request->amount;
+        
+        $withdraws->save();
+
+    
+        return back()->with('success', 'Uploaded sucessfully');
+    }
+public function index() {
+  // get the first page of users manually
+  $withdraws = \App\Models\withdraw::all();
+ 
+  return view('withdraw', compact('withdraws'));
+}
 
 
 }
+                                                                                                                                                                                                                                

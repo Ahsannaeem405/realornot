@@ -14,17 +14,11 @@
 
               <li class=" navigation-header">.
             </li>
-            <li class={{ Request::is('admin/home')? 'active' : '' }} ><a href=""><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+            <li class="{{ Request::is('adminn')? 'active' : '' }}"><a href="{{url('adminn')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
             </li>
-{{--
-            <li  ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">User</span></a>
-                <ul class="menu-content">
-                    <li class="{{ Request::is('admin/user')? 'active' : '' }}" ><a href="{{url('admin/user')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View User</span></a>
-                    </li>
 
-                </ul>
-
-            </li> --}}
+            <li class="{{ Request::is('admin/withdraw')? 'active' : '' }}"><a href="{{url('admin/withdraw')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">withdraw</span></a>
+            </li> 
 
 
 
@@ -32,7 +26,7 @@
                 <ul class="menu-content">
 
 
-                    <li class={{ Request::is('admin/seller')? 'active' : '' }} ><a href="{{url('admin/seller')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Seller</span></a>
+                    <li class="{{ Request::is('admin/seller')? 'active' : '' }}" ><a href="{{url('admin/seller')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Seller</span></a>
                     </li>
 
                 </ul>
@@ -42,12 +36,12 @@
 
 
 
-            <li class={{ Request::is('admin/readings')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Buyer</span></a>
+            <li class="{{ Request::is('admin/readings')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Buyer</span></a>
                 <ul class="menu-content">
 
 
 
-                    <li class={{ Request::is('admin/buyer')? 'active' : '' }} ><a href="{{url('admin/buyer')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Buyer</span></a>
+                    <li class="{{ Request::is('admin/buyer')? 'active' : '' }}" ><a href="{{url('admin/buyer')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Buyer</span></a>
                     </li>
 
 
@@ -57,10 +51,10 @@
             </li>
 
 
-            <li class={{ Request::is('admin/vocabulary')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Expert</span></a>
+            <li class="{{ Request::is('admin/vocabulary')? 'active' : '' }}"><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Expert</span></a>
                 <ul class="menu-content">
 
-                    <li class={{ Request::is('admin/expert')? 'active' : '' }} ><a href="{{url('admin/expert')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Expert</span></a>
+                    <li class="{{ Request::is('admin/expert')? 'active' : '' }}" ><a href="{{url('admin/expert')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Expert</span></a>
                     </li>
 
 
@@ -71,10 +65,10 @@
 
 
 
-            <li class={{ Request::is('admin/writing')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Brands</span></a>
+            <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Brands</span></a>
                 <ul class="menu-content">
 
-                    <li class={{ Request::is('view/brands')? 'active' : '' }} ><a href="{{url('view/brands')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Brands</span></a>
+                    <li class="{{ Request::is('admin/brands')? 'active' : '' }}" ><a href="{{url('admin/brands')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Brands</span></a>
                     </li>
 
                 </ul>
@@ -82,10 +76,10 @@
             </li>
 
 
-            <li class={{ Request::is('admin/writing')? 'active' : '' }} ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Jobs</span></a>
+            <li class="{{ Request::is('admin/writing')? 'active' : '' }}" ><a href=""><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">Jobs</span></a>
                 <ul class="menu-content">
 
-                    <li class={{ Request::is('view/jobs')? 'active' : '' }} ><a href="{{url('view/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
+                    <li class="{{ Request::is('admin/jobs')? 'active' : '' }}"><a href="{{url('admin/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
                     </li>
 
                 </ul>
