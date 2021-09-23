@@ -27,4 +27,38 @@ class ApiController extends Controller
    }
 
 
+
+    public function register(Request $request)
+    {
+        $data = User::where('email', '=', $request->email)->count();
+if($data==0)
+{
+
+
+        $user=new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=\Hash::make($request->password);
+        $user->role=$request->role;
+        $user->save();
+
+        if ($user->save()) {
+            return response()->json(['success' => true, 'message' => 'Register success.','user'=>$user]);
+        }
+
+        else{
+            return response()->json(['success' => false, 'message' => 'registrartion faild.']);
+
+
+
+        }
+
+    }
+else
+{
+    return response()->json(['success' => false, 'message' => 'Email already exist.']);
+
+}
+    }
+
 }
