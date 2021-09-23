@@ -139,7 +139,7 @@ class ExpressController extends Controller
 
             else{
 
-                return redirect('/');
+                return redirect('/login');
             }
 
     }
