@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Express;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
@@ -88,7 +89,7 @@ else
 
 
             $express = new Express();
-            return response()->json( 'lll' );
+
             if ($request->hasFile('photos')) {
 
                 $picture = $request->photos;
@@ -102,7 +103,38 @@ else
 
             }
 
+            public function product_save(Request $request)
+            {
+                $id = Auth::user()->id;
+                $express = new Express();
+                $express->name =$request->Brand;
+                $express->zip_No=$request->zip_No;
+                $express->role=  $request->role;
+                $express->userId=  $id ;
 
+
+
+                $express = new Express();
+
+                if ($request->hasFile('photos')) {
+
+                    $picture = $request->photos;
+
+                   $imageName = rand().$picture->getClientOriginalName();
+                   $imagePath = $picture->move(public_path('uploads'), $imageName);
+                     $express->photos = $imageName;
+               }
+
+                if ($request->hasFile('videos')) {
+                    $file = $request->videos;
+                    $videoName = rand().$file->getClientOriginalName();
+                    $imagePath = $file->move(public_path('uploads'), $videoName);
+                    $express->videos = $videoName;
+                }
+
+
+
+                }
 
 
 

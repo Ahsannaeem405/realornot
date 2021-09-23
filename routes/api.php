@@ -26,3 +26,6 @@ Route::any('brand',[\App\Http\Controllers\ApiController::class,'brand']);
 
 Route::any('image_save',[\App\Http\Controllers\ApiController::class,'image_save']);
 
+Route::any('product_save',[\App\Http\Controllers\ApiController::class,'product_save']);
+
+
