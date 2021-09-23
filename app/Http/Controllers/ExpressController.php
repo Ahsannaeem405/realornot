@@ -535,6 +535,7 @@ public function express_point( Request $request) {
 
     $new = Points::find(4);
 
+
     $new->points = $request->express_point;
     $new->type  =  'Express';
    $new->save();

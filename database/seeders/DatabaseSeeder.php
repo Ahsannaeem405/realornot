@@ -24,5 +24,25 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('expert_points')->insert([
+            'id' => '1',
+            'expert_point' => '30',
+        ]);
+
+        DB::table('points')->insert([
+            'id' => '4',
+            'points' => '30',
+            'type' => 'Express',
+        ]);
+
+
+        DB::table('points')->insert([
+            'id' => '5',
+            'points' => '40',
+            'type' => 'Priority',
+        ]);
+
+
+
     }
 }
