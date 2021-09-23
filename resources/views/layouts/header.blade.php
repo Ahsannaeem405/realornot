@@ -197,7 +197,7 @@ $('#dropdownMenuButton').click(function(){
 
   $('.dropdown-menu').css('display','block');
   $('body').click(function(){
-    
+    $('.dropdown-menu').hide();
   });
 });
 });
