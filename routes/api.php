@@ -21,3 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::any('login',[\App\Http\Controllers\ApiController::class,'login']);
 Route::any('register',[\App\Http\Controllers\ApiController::class,'register']);
+
+Route::any('brand',[\App\Http\Controllers\ApiController::class,'brand']);
+
+Route::any('image_save',[\App\Http\Controllers\ApiController::class,'image_save']);
+

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Express;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -60,5 +62,49 @@ else
 
 }
     }
+
+
+
+
+
+
+
+
+
+    public function brand(Request $request)
+    {
+
+        $brand = Brand::get();
+
+
+                return response()->json($brand);
+
+
+        }
+
+        public function image_save(Request $request)
+        {
+
+
+
+            $express = new Express();
+
+            if ($request->hasFile('photos')) {
+
+                $picture = $request->photos;
+                return response()->json( $picture );
+               $imageName = rand().$picture->getClientOriginalName();
+               $imagePath = $picture->move(public_path('uploads'), $imageName);
+                 $express->photos = $imageName;
+           }
+
+
+
+            }
+
+
+
+
+
 
 }
