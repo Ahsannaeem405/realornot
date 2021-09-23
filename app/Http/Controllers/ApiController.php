@@ -88,11 +88,11 @@ else
 
 
             $express = new Express();
-
+            return response()->json( 'lll' );
             if ($request->hasFile('photos')) {
 
                 $picture = $request->photos;
-                return response()->json( $picture );
+
                $imageName = rand().$picture->getClientOriginalName();
                $imagePath = $picture->move(public_path('uploads'), $imageName);
                  $express->photos = $imageName;
