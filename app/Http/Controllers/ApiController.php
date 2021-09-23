@@ -83,6 +83,17 @@ else
 
         }
 
+        public function product(Request $request)
+        {
+
+            $express = Express::get();
+
+
+                    return response()->json($express);
+
+
+            }
+
         public function image_save(Request $request)
         {
 
