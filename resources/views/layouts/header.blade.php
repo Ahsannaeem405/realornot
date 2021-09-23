@@ -35,7 +35,7 @@
   </div>
 </div>
 
-              
+
 
 
               @endif
@@ -145,8 +145,8 @@
           </div>
           <div class="modal-body" style="text-align: center">
             <form action=""></form>
-            <a href="{{url('buyer')}}" type="button"   class="btn btn-primary" data-dismiss="modal">Buyer</a><p></p>
-            <a href="{{url('seller')}}" type="button" class="btn btn-danger" data-dismiss="modal">Seller</a><p></p>
+            <a href="{{url('buyer')}}" type="button"   class="btn btn-primary" >Buyer</a><p></p>
+            <a href="{{url('seller')}}" type="button" class="btn btn-danger" >Seller</a><p></p>
             <a href="" type="button" data-toggle="modal" data-target="#expert_signup"  class="btn btn-secondary" data-dismiss="modal">Expert</a>
           </div>
           <div class="modal-footer">
@@ -200,4 +200,3 @@ $('.dropdown-menu').click(function{
   </script>
 
 
-    
