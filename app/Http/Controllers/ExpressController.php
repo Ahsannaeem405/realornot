@@ -18,21 +18,42 @@ use PhpParser\Node\Expr;
 class ExpressController extends Controller
 {
     public function create(Request $request){
-// dd($request);
+        // dd($request);
+
         $id = Auth::user()->id;
+
         $express = new Express();
         $express->name =$request->Brand;
         $express->zip_No=$request->zip_No;
         $express->role=  $request->role;
         $express->userId=  $id ;
+        $cat = null;
+
+        // if ($request->hasFile('photos')) {
+        //      $picture = $request->photos;
+        //     $imageName = rand().$picture->getClientOriginalName();
+        //     $imagePath = $picture->move(public_path('uploads'), $imageName);
+        //       $express->photos = $imageName;
+        // }
 
 
-        if ($request->hasFile('photos')) {
-             $picture = $request->photos;
-            $imageName = rand().$picture->getClientOriginalName();
-            $imagePath = $picture->move(public_path('uploads'), $imageName);
-              $express->photos = $imageName;
+
+        foreach($request->file('photos') as $picture)
+        {
+            // $picture = $request->photos;
+
+
+         $imageName = rand().$picture->getClientOriginalName();
+
+         $imagePath = $picture->move(public_path('uploads'), $imageName);
+
+             $cat.= $imageName.",";
+
+
         }
+        // dd($cat);
+
+        $express->photos = $cat;
 
         if ($request->hasFile('videos')) {
             $file = $request->videos;
@@ -401,7 +422,11 @@ public function Detail($id){
 public function product_status(Request $request, $id){
     // dd($request);
 
+    // dd(Auth::user()->id);
+
     $product =Express::find($id );
+    $product->expert_id = Auth::user()->id;
+
     $product->comment =   $request->Comment;
     $product->status_expert =   $request->statuss;
     $product->update();
@@ -425,8 +450,9 @@ public function admin_Approve( $id){
         $product->comment = null;
     }
     else{
+
         $product->status_expert = 2;
-        $product->expert_point += $ExpertPoint->expert_point;
+        $product->expert_point = $ExpertPoint->expert_point;
 
     }
 
@@ -445,7 +471,7 @@ public function admin_Turn_down( $id){
     // @dd( $product->status_expert);
     if( $product->status_expert == '0')
     {
-        $product->expert_point += $ExpertPoint->expert_point;
+        $product->expert_point = $ExpertPoint->expert_point;
 
         $product->status_expert = 2;
         $product->admin_expert = 'No Pass';
@@ -594,6 +620,17 @@ public function express_point( Request $request) {
 
 
   }
+
+  public function Detail_Product( Request $request, $id) {
+      $express = Express::where('id', $id)->get();
+    //   dd($express);
+      return view('product_detail', compact('express'));
+
+
+
+
+}
+
 
 
 

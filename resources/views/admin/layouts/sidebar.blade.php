@@ -82,6 +82,9 @@
                     <li class="{{ Request::is('admin/jobs')? 'active' : '' }}"><a href="{{url('admin/jobs')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">View Jobs</span></a>
                     </li>
 
+                    <li class="{{ Request::is('admin/Job_history')? 'active' : '' }}"><a href="{{url('admin/Job_history')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics"> Job History</span></a>
+                    </li>
+
                 </ul>
 
             </li>

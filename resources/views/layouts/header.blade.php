@@ -10,7 +10,7 @@ use App\Models\Express;
                 <a href="{{ url('/') }}" class=" h2 mb-0"><img style=" -webkit-filter: grayscale(0);
         -webkit-transform: scale(1.01);   width: 70%;" src="{{ asset('assets/logo1.png') }}" alt=""></a>
             </div>
-            <div class="col-10 col-md-7 d-none d-xl-block" data-aos="fade-down">
+            <div class="col-10 col-md-7 d-none d-xl-block" style="    padding-right: unset; margin-left: -7px;" data-aos="fade-down">
                 <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
                     <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
@@ -44,7 +44,7 @@ use App\Models\Express;
                                 </li>
                                 <?php
 
-                                $express = Express::where('userId', Auth::user()->id)->get();
+                                $express = Express::where('expert_id', Auth::user()->id)->get();
                                 $expert_point = null;
 
                                 ?>
@@ -54,6 +54,7 @@ use App\Models\Express;
                                     ?>
 
                                 @endforeach
+
                                 <li id="navMenus" class="" style=" height: 32px; padding: 4px;background:
                                     #37b649;color: white;border-radius: 8px;width: 62px;font-size: 16px;">
                                     {{ $expert_point }}$</li>
@@ -63,7 +64,7 @@ use App\Models\Express;
 
                             @endif
                             @if (Auth::user()->role == 'buyer')
-                                <li><a href="{{ url('/authentication_buyer') }}">Authentication Buyer</a></li>
+                                <li><a href="{{ url('/authentication_buyer') }}">Authenticate</a></li>
                             @endif
                         @endif
 
@@ -81,8 +82,8 @@ use App\Models\Express;
                             @if (Auth::user()->role != 'expert')
 
                                 <li style="text-align: center;">
-                                    <a href="#" class="pl-3 pr-3" data-toggle="modal"
-                                        data-target="#Authentication">Authentication Now</a>
+                                    <a href="#" class="pl-3 pr-3 btn btn-danger" style="border-radius: 9px; background:#37b649; border:none; " data-toggle="modal"
+                                        data-target="#Authentication" >Authenticate Now</a>
 
                                 </li>
                             @endif
@@ -90,7 +91,7 @@ use App\Models\Express;
                         @if (!Auth::check())
 
                             <li style="text-align: center;">
-                                <a href="{{ url('/login') }}" class="pl-3 pr-3 ">Authentication Now</a>
+                                <a href="{{ url('/login') }}" class="pl-3 pr-3  btn btn-danger" style="border-radius: 9px; background:#37b649; border:none">Authenticate Now</a>
 
                             </li>
 

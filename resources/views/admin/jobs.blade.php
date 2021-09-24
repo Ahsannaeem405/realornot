@@ -4,9 +4,10 @@
     use App\Models\User;
     use App\Models\Brand;
     use App\Models\Express;
-    $user = Express::all();
+    $user = Express::where('status_expert', '!=' , '2')->get();
     // echo $user;
     ?>
+    {{-- @dd(  $user) --}}
       <section id="column-selectors">
 
 
@@ -38,6 +39,7 @@
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Image</th>
                                             {{-- <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Expert Comment</th> --}}
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Type</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Product Detail</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 193.887px;">Expert Status</th>
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_4" rowspan="1" colspan="1" aria-label="Store Name: activate to sort column ascending" style="width: 112.012px;">Action</th>
@@ -54,17 +56,20 @@
 
             <tr role="row" class="odd">
 
-
                 <td class="sorting_1"><?php echo $i++; ?></td>
 
                 <td class="sorting_1">{{ $users->Brand->brand_name }}</td>
 
+                <?php
+                $str_arr = explode (",", $users->photos);
 
-                <td class="sorting_1"> <img style=" width: 20%;" src="{{asset('/uploads/'.$users->photos) }}" alt="">  </td>
+                                             ?>
+
+                <td class="sorting_1"> <img style=" width: 20%;" src="{{asset('/uploads/'.$str_arr[0]) }}" alt="">  </td>
                 <td class="sorting_1"> {{$users->role }}  </td>
+                <td class="sorting_1"> <a href="{{url('Detail_Product', $users->id )}}" class="btn btn-primary">View</a>   </td>
 
                 <td>
-
                     <button type="button" class="btn btn-primary">
                         @if($users->role == 'buyer')
                         {{'Buyer Authentication'}}

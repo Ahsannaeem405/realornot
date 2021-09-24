@@ -212,6 +212,10 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
 
+    Route::get('/Job_history', function () {
+        return view('admin.job_history');
+    });
+
     Route::get('/expert_points', function () {
         return view('admin.expert_points');
     });
@@ -312,6 +316,12 @@ Route::middleware(['auth','Expert'])->group(function (){
     Route::get('/error', function () {
         return view('error');
     });
+
+
+
+Route::get('/Detail_Product/{id}', [App\Http\Controllers\ExpressController::class, 'Detail_Product'])->name('Detail_Product');
+
+
 
 
 

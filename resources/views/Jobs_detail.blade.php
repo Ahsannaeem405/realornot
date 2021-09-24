@@ -51,9 +51,13 @@ $expres = Express::where('name', Auth::user()->brand_expert)->get();
                     </div>
 
                     <div>
+                        <?php
+                        $str_arr = explode (",", $express->photos);
+
+                                                     ?>
 
 
-                        <img src="{{asset('/uploads/'.$express->photos) }}" style="
+                        <img src="{{asset('/uploads/'.$str_arr[0]) }}" style="
                         max-height: 313px;
                         min-height: 313px;
                      width: fit-content;" alt="Image" class="img-fluid">
@@ -66,8 +70,8 @@ $expres = Express::where('name', Auth::user()->brand_expert)->get();
                                     <br>
 
                                     <h2 style="color: black;">  {{$express->zip_No}}</h2>
-                                    <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                    <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
+                                    {{-- <h2 style="color: black; margin-top: -7px;"> jardan 11</h2> --}}
+                                    <p style="font-size: 13px; margin-top: -10px;">{{$express->created_at}}</p>
                                 </div>
                                 <div class="col-4">
                                     <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;" alt="">

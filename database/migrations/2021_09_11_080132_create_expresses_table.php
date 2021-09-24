@@ -28,9 +28,7 @@ class CreateExpressesTable extends Migration
             $table->text('comment')->nullable();
             $table->text('admin_expert')->nullable();
             $table->string('expert_point')->nullable();
-
-
-
+            $table->string('expert_id')->nullable();
 
             $table->timestamps();
         });

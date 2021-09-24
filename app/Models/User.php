@@ -34,6 +34,8 @@ class User extends Authenticatable
         'stripe_publiic_key',
         'stripe_secret_key',
         'paypal_email',
+        'expert_point',
+
 
 
 

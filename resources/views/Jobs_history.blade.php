@@ -69,7 +69,12 @@ $express = Express::get();
                         @endif
                         <div>
 
-                            <img src="{{ asset('/uploads/'.$expresss->photos) }}" style="
+                    <?php
+                    $str_arr = explode(',', $expresss->photos);
+
+                    ?>
+
+                            <img src="{{ asset('/uploads/'. $str_arr[0]) }}" style="
                             max-height: 313px;
                             min-height: 313px;
                          width: fit-content;" alt="Image" class="img-fluid">

@@ -106,7 +106,7 @@ $point = Points::where('type', 'Express')->first();
                 </div>
               </div>
 
-
+{{--
               <div class="row form-group">
 
                 <div class="col-md-12">
@@ -114,7 +114,33 @@ $point = Points::where('type', 'Express')->first();
                   <input id="Photos" type="file" class="form-control" name="photos" required >
 
                 </div>
-              </div>
+              </div> --}}
+
+
+
+
+              <div class="form-row">
+
+                <div class="col-md-12 mb-3" id="AppImage">
+                    <label for="password">Select Picture</label>
+                    <input
+                        type="file"
+                        class="form-control"
+                        name="photos[]"
+                        required
+                    />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="add-img">
+                     Add Image
+                </button>
+                <br>
+            </div>
+
+
 
 
 
@@ -168,12 +194,15 @@ $point = Points::where('type', 'Express')->first();
   </div>
 
   <script>
-//    $( document ).ready(function() {
-//        alert('ii');
-//     $("#Stripe").click(function(){
-//         $( "#Stripe" ).html( $( "input:checked" ).val() + " is checked!" );
-//     });
-// });
-</script>
+    $(document).ready(function () {
 
+        var counter = 1;
+        $("#add-img").on("click", function () {
+            // alert('oo');
+            $("#AppImage").append("<br>  <label for='password'>Select Picture</label> <input type='file' class='form-control' name='photos[]' required />");
+
+        });
+
+    });
+</script>
   @endsection

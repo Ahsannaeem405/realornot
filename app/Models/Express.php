@@ -22,6 +22,9 @@ class Express extends Model
          'comment',
          'admin_expert',
          'expert_point',
+         'expert_id',
+
+
 
 
 

@@ -27,20 +27,20 @@ use App\Models\Brand;
 $brand = Brand::all();
 
 ?>
-   
+
 
     <div class="site-section"  data-aos="fade">
       <div class="container">
           @if (Session::has('success'))
 <div class="alert alert-success" role="alert" >
-  <button type="button" class="close" data-dismiss="alert">×</button> 
+  <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{Session::get('success')}}</strong>
 </div>
 @endif
 
 
 @if (Session::has('error'))
-<div class="alert alert-danger" role="alert" >  <button type="button" class="close" data-dismiss="alert">×</button> 
+<div class="alert alert-danger" role="alert" >  <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ Session::get('error') }}</strong>
 </div>
 @endif
@@ -66,10 +66,10 @@ $brand = Brand::all();
                     <input type="hidden" value="pending" name="expert_status">
 
 
-    
 
 
-              
+
+
 
               <div class="row form-group">
 
@@ -78,7 +78,7 @@ $brand = Brand::all();
                   <select name="paymentmethod" id="" class="form-control">
                       <option id="paymentmethod"  style="background:black" required>Stirpe</option>
                       <option id="paymentmethod"  style="background:black" required>Paypal</option>
-                    
+
                   </select>
                   {{-- <input id="brand_expert" type="text" class="form-control" name="brand_expert" required > --}}
 
@@ -141,4 +141,3 @@ $brand = Brand::all();
 
 
   @endsection
-                                                                                    

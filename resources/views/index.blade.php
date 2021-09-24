@@ -97,13 +97,14 @@
                                     font-size: 48px;"><b> In God we trust <br>
                                         Everything else we Authenticate</b></h1>
                                 @if (!Auth::check())
-                                    <a href="{{ '/login' }}" class="btn btn-danger" style="border-radius: 14px; background:#37b649; border:none">Authentication
+                                    <a href="{{ '/login' }}" class="btn btn-danger" style="border-radius: 10px; background:#37b649; border:none">Authentication
                                         Now</a>
                                 @else
                                     <a href="#" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#Authentication" style="border-radius: 14px; background:#37b649; border:none">Authentication Now</a>
+                                        data-target="#Authentication" style="border-radius: 10px; background:#37b649; border:none">Authentication Now</a>
                                 @endif
-                                {{-- <a href="listing-full.html" class="btn btn-sm btn-white btn-action">Shop Now <span
+                                {{-- <a href="listing-full.html" class="btn btn-sm btn-
+                                white btn-action">Shop Now <span
                                         class="icon-arrow-right"></span></a> --}}
                             </div>
 
@@ -234,10 +235,10 @@
                                     font-size: 48px;"><b> In God we trust <br>
                                         Everything else we Authenticate</b></h1>
                                         @if (!Auth::check())
-                                        <a href="{{ '/login' }}" style="border-radius: 14px; background:#37b649; border:none" class="btn btn-danger">Authentication
+                                        <a href="{{ '/login' }}" style="border-radius: 10px; background:#37b649; border:none" class="btn btn-danger">Authentication
                                             Now</a>
                                     @else
-                                        <a href="#" class="btn btn-danger" style="border-radius: 14px; background:#37b649; border:none" data-toggle="modal"
+                                        <a href="#" class="btn btn-danger" style="border-radius: 10px; background:#37b649; border:none" data-toggle="modal"
                                             data-target="#Authentication">Authentication Now</a>
                                     @endif
                                 {{-- <a href="listing-full.html" class="btn btn-sm btn-white btn-action">Shop Now <span
@@ -510,7 +511,7 @@
                     <div class="image-wrap-2" style=" border-radius: 22px;">
                         <div class="image-info">
                             {{-- <h2 class="mb-3">Nature</h2> --}}
-                            <a href="{{ url('/products') }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+                            <a href="{{ url('/Detail_Product', $expresss->id) }}" class="btn btn-outline-white py-2 px-4">Detail</a>
                         </div>
 
                         <button class="mt-3 ml-3 btn btn-danger"
@@ -521,9 +522,12 @@
 
 
                         <div>
+                            <?php
+                            $str_arr = explode (",", $expresss->photos);
 
+                                                         ?>
 
-                            <img src="{{ asset('/uploads/'.$expresss->photos) }}" style="
+                            <img src="{{ asset('/uploads/'.$str_arr[0]) }}" style="
                             max-height: 313px;
                             min-height: 313px;
                          width: fit-content;" alt="Image" class="img-fluid">
@@ -536,8 +540,8 @@
                                         <br>
 
                                         <h2 style="color: black;">  {{$expresss->Brand->brand_name}}</h2>
-                                        <h2 style="color: black; margin-top: -7px;"> jardan 11</h2>
-                                        <p style="font-size: 13px; margin-top: -10px;">Sep 10, 2021 11:32 AM</p>
+                                        {{-- <h2 style="color: black; margin-top: -7px;"> jardan 11</h2> --}}
+                                        <p style="font-size: 13px; margin-top: -10px;">{{$expresss->created_at}}</p>
                                     </div>
                                     <div class="col-4">
                                         <img src="{{ asset('/assets/images/logo-01.png') }}" style="    height: 84px;"

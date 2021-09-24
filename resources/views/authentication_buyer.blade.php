@@ -42,7 +42,7 @@
                 <div class="image-wrap-2" style=" border-radius: 22px;">
                     <div class="image-info">
                         {{-- <h2 class="mb-3">Nature</h2> --}}
-                        <a href="#"  data-toggle="modal" data-target="#Authentication" class="btn btn-outline-white py-2 px-4">Authentication</a>
+                        <a href="#"  data-toggle="modal" data-target="#Authentication" class="btn btn-outline-white py-2 px-4">Authenticate</a>
                     </div>
 
                     <div>

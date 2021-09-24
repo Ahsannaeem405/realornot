@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{asset('/assets/css/jquery-ui.css')}}">
   <link rel="stylesheet" href="{{asset('/assets/css/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{asset('/assets/css/owl.theme.default.min.css')}}">
-  
+
 
   <link rel="stylesheet" href="{{asset('/assets/css/lightgallery.min.css')}}">
 
@@ -70,4 +70,3 @@
 
   </body>
   </html>
-                  
