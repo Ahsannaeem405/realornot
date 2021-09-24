@@ -134,7 +134,7 @@ $point = Points::where('type', 'Express')->first();
             </div>
 
             <div class="form-group">
-                <button type="button" class="btn btn-danger" id="add-img">
+                <button type="button"  style="border-radius: 5px;" class="btn btn-danger" id="add-img">
                      Add Image
                 </button>
                 <br>
