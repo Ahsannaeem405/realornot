@@ -17,6 +17,7 @@ class CreateExpressesTable extends Migration
             $table->id();
             $table->string('zip_No')->nullable();
             $table->string('name')->nullable();
+            $table->string('brand_name')->nullable();
             $table->string('photos')->nullable();
             $table->string('videos')->nullable();
             $table->string('userId')->nullable();

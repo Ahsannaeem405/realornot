@@ -11,6 +11,7 @@ class Express extends Model
 
     protected $fillable = [
         'name',
+        'brand_name',
         'zip_No',
         'photos',
         'videos',

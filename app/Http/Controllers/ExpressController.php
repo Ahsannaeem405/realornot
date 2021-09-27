@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\ExpertPoint;
 use App\Models\Express;
 use App\Models\Points;
@@ -18,12 +19,15 @@ use PhpParser\Node\Expr;
 class ExpressController extends Controller
 {
     public function create(Request $request){
-        // dd($request);
+
+
+        $brand = Brand::find($request->Brand);
 
         $id = Auth::user()->id;
 
         $express = new Express();
         $express->name =$request->Brand;
+        $express->brand_name = $brand->brand_name;
         $express->zip_No=$request->zip_No;
         $express->role=  $request->role;
         $express->userId=  $id ;
