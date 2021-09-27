@@ -74,12 +74,12 @@ else
 
     public function brand(Request $request)
     {
+        return 1;
 
         $brand = Brand::get();
 
 
                 return response()->json($brand);
-
 
         }
 
