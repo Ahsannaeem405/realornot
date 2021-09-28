@@ -108,8 +108,10 @@
 
                                          {{$expresss->zip_No}}
                                             <br>
+                                            @if(isset($expresss->Brand->brand_name))
 
                                             <h2 style="color: black;">  {{$expresss->Brand->brand_name}}</h2>
+                                            @endif
                                             {{-- <h2 style="color: black; margin-top: -7px;"> jardan 11</h2> --}}
                                             <p style="font-size: 13px; margin-top: -10px;">{{$expresss->created_at}}</p>
                                         </div>
