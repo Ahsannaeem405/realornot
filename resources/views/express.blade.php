@@ -142,8 +142,6 @@ $point = Points::where('type', 'Express')->first();
 
 
 
-
-
               <div class="row form-group">
 
                 <div class="col-md-12">
@@ -154,7 +152,7 @@ $point = Points::where('type', 'Express')->first();
               </div>
               <input type="hidden" name="role" value="express" id="">
 
-              <input type="hidden" name="priority" value="{{  $point->points}}" id="">
+              <input type="hidden" name="priority" value="{{$point->points}}" id="">
 
 
               <input type="radio" class="" checked id="Stripe" name="Paymentype" value="Stripe">  Pay with Stripe <br>
