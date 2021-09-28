@@ -88,9 +88,9 @@ class PaymentController extends Controller
                 }
                 // return view('express')->with('success','Payment is successful.');
 
+                return redirect('/product_detail');
 
-
-                return "Payment is successful. Your transaction id is: ". $arr_body['id'];
+                // return "Payment is successful. Your transaction id is: ". $arr_body['id'];
             } else {
 
 

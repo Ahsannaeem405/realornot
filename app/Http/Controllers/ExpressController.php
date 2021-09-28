@@ -49,7 +49,7 @@ class ExpressController extends Controller
 
          $imageName = rand().$picture->getClientOriginalName();
 
-         $imagePath = $picture->move(public_path('uploads'), $imageName);
+         $imagePath = $picture->move(public_path('../../uploads'), $imageName);
 
              $cat.= $imageName.",";
 
@@ -62,7 +62,7 @@ class ExpressController extends Controller
         if ($request->hasFile('videos')) {
             $file = $request->videos;
             $videoName = rand().$file->getClientOriginalName();
-            $imagePath = $file->move(public_path('uploads'), $videoName);
+            $imagePath = $file->move(public_path('../../uploads'), $videoName);
             $express->videos = $videoName;
         }
 

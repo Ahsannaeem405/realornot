@@ -134,6 +134,8 @@ use App\Models\Express;
 
 </header>
 <?php
+$points = null;
+$point = null;
 use App\Models\Points;
 $points = Points::where('type', 'Express')->first();
 $point = Points::where('type', 'Priority')->first();

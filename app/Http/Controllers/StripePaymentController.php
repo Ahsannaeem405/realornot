@@ -59,7 +59,7 @@ class StripePaymentController extends Controller
         else
         {
             Session::flash('success', 'Payment successful!');
-            return back();
+            return redirect('/product_detail');
         }
 
 
