@@ -109,7 +109,7 @@
             <div class="modal-body">
 
                   @csrf
-                  <input type="text" name="priority_point" value="" class="form-control" id="priority_point">
+                  <input type="text" name="priority_point" required value="" class="form-control" id="priority_point">
 
             </div>
             <div class="modal-footer">
@@ -155,7 +155,7 @@
             <div class="modal-body">
 
                   @csrf
-                  <input type="text" name="express_point" value="" class="form-control" id="add_brand">
+                  <input type="text" name="express_point" required value="" class="form-control" id="add_brand">
 
             </div>
             <div class="modal-footer">

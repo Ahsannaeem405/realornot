@@ -157,7 +157,7 @@
         <div class="modal-body">
 
               @csrf
-              <input type="text" name="brand_name" value="" class="form-control" id="add_brand">
+              <input type="text" name="brand_name" value="" required class="form-control" id="add_brand">
 
         </div>
         <div class="modal-footer">

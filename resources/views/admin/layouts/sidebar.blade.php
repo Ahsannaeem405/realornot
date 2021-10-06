@@ -14,7 +14,7 @@
 
               <li class=" navigation-header">.
             </li>
-            <li class="{{ Request::is('adminn')? 'active' : '' }}"><a href="{{url('adminn')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+            <li class="{{ Request::is('adminn')? 'active' : '' }}"><a href="{{url('admin/index')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
             </li>
 
             <li class="{{ Request::is('admin/withdraw')? 'active' : '' }}"><a href="{{url('admin/withdraw')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="profile">withdraw</span></a>
