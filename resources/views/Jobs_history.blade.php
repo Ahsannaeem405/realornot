@@ -22,7 +22,8 @@
 
 <?php
 use App\Models\Express;
-$express = Express::get();
+
+$express = Express::where('name', Auth::user()->brand_expert)->get();
 
 ?>
 
